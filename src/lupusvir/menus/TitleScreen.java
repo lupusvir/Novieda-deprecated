@@ -9,22 +9,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-<<<<<<< HEAD
-import lupusvir.CharCreation;
-import lupusvir.GameUtil;
-import lupusvir.main.Main;
-
-public class TitleScreen implements ActionListener{
-	
-	public static JFrame frame = new JFrame("Novieda v0.1"); //setting the name of the JFrame
-=======
 import lupusvir.GameUtil;
 import lupusvir.Main;
 
 public class TitleScreen implements ActionListener {
 	
 	public static JFrame frame = new JFrame("Novieda v" + Main.versionNumber); //setting the name of the JFrame
->>>>>>> 0c445b7 (Slowly re-implementing what was lost last night.)
 
 	/** 
 	* Constructor which generates the title screen
@@ -63,11 +53,7 @@ public class TitleScreen implements ActionListener {
 	public void actionPerformed(ActionEvent e) { //method which makes each button actually work
 		
 		if (e.getActionCommand().equals("New Game")) { //leads to next menu
-<<<<<<< HEAD
-			new CharCreation();
-=======
 			new CharCreator();
->>>>>>> 0c445b7 (Slowly re-implementing what was lost last night.)
 			
 		} else if (e.getActionCommand().equals("Load Game")) {
 			//TODO implement the load game
