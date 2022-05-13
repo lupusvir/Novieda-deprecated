@@ -20,24 +20,23 @@ public class CharCreator implements ActionListener {
 		
 		/*I have a funny feeling there's a way better way of doing this.*/
 		
-		panel.add(GameUtil.createButton("Equan", this), GameUtil.setConstraints(0.1, 0.1, 0, 0, 1, 1));
-		panel.add(GameUtil.createButton("Lupan", this), GameUtil.setConstraints(0.1, 0.1, 0, 2, 1, 1));
-		panel.add(GameUtil.createButton("Human", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
-		panel.add(GameUtil.createButton("Feline", this), GameUtil.setConstraints(0.1, 0.1, 2, 0, 1, 1));
-		panel.add(GameUtil.createButton("Lizan", this), GameUtil.setConstraints(0.1, 0.1, 2, 2, 1, 1));
+		panel.add(GameUtil.createButton("Equus Sapien", this), GameUtil.setConstraints(0.1, 0.1, 0, 0, 1, 1));
+		panel.add(GameUtil.createButton("Canis Sapien", this), GameUtil.setConstraints(0.1, 0.1, 0, 2, 1, 1));
+		panel.add(GameUtil.createButton("Homo Sapien", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
+		panel.add(GameUtil.createButton("Panthera Sapien", this), GameUtil.setConstraints(0.1, 0.1, 2, 0, 1, 1));
+		panel.add(GameUtil.createButton("Reptilia Sapien", this), GameUtil.setConstraints(0.1, 0.1, 2, 2, 1, 1));
 		
 		panel.add(GameUtil.setLabel("<html><div><center>--- Choose a race ---</center></div>"
-				+ "<div></div><div><center>Equan</center></div>" 
-				+ "<div><center>A race supposedly descendant of horses, their large genitals make them slightly more sexual and their muscles are more powerful.</div></center>"
-				+ "<div></div><div><center>Lupan</center></div>" 
-				+ "<div><center>A race supposedly descendant of wolves, their lean bodies are stronger and their minds more quick-witted.</center></div>"
-				+ "<div></div><div><center>Human</center>" 
-				+ "<div><center>A race supposedly descendant of apes, their curious minds are more open to change and their skin is slightly more sensitive.</center></div>"
-				+ "<div></div><div><center>Feline</center>" 
-				+ "<div><center>A race supposedly descendant of cats, their lust-driven society makes them a bit more sexual and sensitive.</center></div>"
-				+ "<div></div><div><center>Lizan</center></div>" 
-				+ "<div><center>A race supposedly descendant of some kind of reptile, their desert-adapted bodies have made them stronger, "
-				+ "but they're still careful as their scales make them somewhat sensitive.</center></div>"), GameUtil.setConstraints(0.1, 0.1, 0, 3, 3, 0));
+				+ "<div></div><div><center></center></div>" 
+				+ "<div><center></div></center>"
+				+ "<div></div><div><center></center></div>" 
+				+ "<div><center></center></div>"
+				+ "<div></div><div><center></center>" 
+				+ "<div><center></center></div>"
+				+ "<div></div><div><center></center>" 
+				+ "<div><center></center></div>"
+				+ "<div></div><div><center></center></div>" 
+				+ "<div><center></center></div>"), GameUtil.setConstraints(0.1, 0.1, 0, 3, 3, 0));
 		
 		TitleScreen.frame.add(panel); //adds the panel to the frame
 		GameUtil.refreshScreen();
@@ -45,7 +44,7 @@ public class CharCreator implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand().equals("Equan")) {
+		if (e.getActionCommand().equals("Equus Sapien")) {
 //			Char.race = 2;
 //			Char.foundFirmshaft = true;
 //			Char.currentZone = 2;
@@ -65,7 +64,7 @@ public class CharCreator implements ActionListener {
 //			Char.tallness = 4;
 //			new SexSelect();
 			
-		} else if (e.getActionCommand().equals("Lupan")) {
+		} else if (e.getActionCommand().equals("Canis Sapien")) {
 //			Char.race = 3;
 //			Char.foundTieden = true;
 //			Char.currentZone = 3;
@@ -84,7 +83,7 @@ public class CharCreator implements ActionListener {
 //			Char.tallness = -2;
 //			new SexSelect();
 			
-		} else if (e.getActionCommand().equals("Human")) {
+		} else if (e.getActionCommand().equals("Homo Sapien")) {
 //			Char.race = 1;
 //			Char.changeMod += .5;
 //			Char.currentZone = 1;
@@ -100,7 +99,7 @@ public class CharCreator implements ActionListener {
 //			Char.sensitivity = 17;
 //			new SexSelect();
 			
-		} else if (e.getActionCommand().equals("Feline")) {
+		} else if (e.getActionCommand().equals("Panthera Sapien")) {
 //			Char.race = 4;
 //			Char.foundSizCalit = true;
 //			Char.currentZone = 4;
@@ -121,7 +120,7 @@ public class CharCreator implements ActionListener {
 //			Char.tallness = -3;
 //			new SexSelect();
 			
-		} else if (e.getActionCommand().equals("Lizan")) {
+		} else if (e.getActionCommand().equals("Reptilia Sapien")) {
 //			Char.race = 6;
 //			Char.foundOviasis = true;
 //			Char.currentZone = 6;
