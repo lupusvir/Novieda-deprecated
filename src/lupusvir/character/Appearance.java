@@ -32,9 +32,12 @@ public class Appearance {
 	private boolean knot = false;
 	private int ballLoudnessLevel = 0;
 
-	private int breastSize = 0;
+	private int boobSize = 0;
 	private int boobTotal = 0;
-	private int nippleSize = 1;
+	private int nippleTotal = 0;
+	private int nippleLength = 0;
+	private int nippleThickness = 0;
+	private int nippleAerolaSize = 0;
 	private int nippleType = 0;
 	private int nippleLeakRate = 0;
 	private boolean udder = false;
@@ -42,8 +45,10 @@ public class Appearance {
 	private int udderType = 0;
 	private int teatSize = 0;
 	private int udderLeakRate = 0;
+	private int clitTotal = 0;
 	private int clitSize = 0;
 	private int vagTotal = 0;
+	private int vagType = 0;
 	private int vagSize = 0;
 	private int vagLeakLubeRate = 0;
 	private int vagLeakGirlcumRate = 0;
@@ -270,12 +275,12 @@ public class Appearance {
 		this.ballLoudnessLevel = ballLoudnessLevel;
 	}
 	
-	public int getBreastSize() {
-		return breastSize;
+	public int getBoobSize() {
+		return boobSize;
 	}
 	
-	public void setBreastSize(int breastSize) {
-		this.breastSize = breastSize;
+	public void setBoobSize(int boobSize) {
+		this.boobSize = boobSize;
 	}
 	
 	public int getBoobTotal() {
@@ -286,14 +291,38 @@ public class Appearance {
 		this.boobTotal = boobTotal;
 	}
 	
-	public int getNippleSize() {
-		return nippleSize;
+	public int getNippleTotal() {
+		return nippleTotal;
+	}
+
+	public void setNippleTotal(int nippleTotal) {
+		this.nippleTotal = nippleTotal;
+	}
+
+	public int getNippleLength() {
+		return nippleLength;
 	}
 	
-	public void setNippleSize(int nippleSize) {
-		this.nippleSize = nippleSize;
+	public void setNippleLength(int nippleLength) {
+		this.nippleLength = nippleLength;
 	}
 	
+	public int getNippleThickness() {
+		return nippleThickness;
+	}
+
+	public void setNippleThickness(int nippleThickness) {
+		this.nippleThickness = nippleThickness;
+	}
+
+	public int getNippleAerolaSize() {
+		return nippleAerolaSize;
+	}
+
+	public void setNippleAerolaSize(int nippleAerolaSize) {
+		this.nippleAerolaSize = nippleAerolaSize;
+	}
+
 	public int getNippleType() {
 		return nippleType;
 	}
@@ -350,6 +379,14 @@ public class Appearance {
 		this.udderLeakRate = udderLeakRate;
 	}
 	
+	public int getClitTotal() {
+		return clitTotal;
+	}
+
+	public void setClitTotal(int clitTotal) {
+		this.clitTotal = clitTotal;
+	}
+
 	public int getClitSize() {
 		return clitSize;
 	}
@@ -366,6 +403,14 @@ public class Appearance {
 		this.vagTotal = vagTotal;
 	}
 	
+	public int getVagType() {
+		return vagType;
+	}
+
+	public void setVagType(int vagType) {
+		this.vagType = vagType;
+	}
+
 	public int getVagSize() {
 		return vagSize;
 	}
