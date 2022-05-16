@@ -43,7 +43,8 @@ public class Appearance {
 	private boolean udder = false;
 	private int udderSize = 0;
 	private int udderType = 0;
-	private int teatSize = 0;
+	private int teatLength = 0;
+	private int teatThickness = 0;
 	private int udderLeakRate = 0;
 	private int clitTotal = 0;
 	private int clitSize = 0;
@@ -363,14 +364,22 @@ public class Appearance {
 		this.udderType = udderType;
 	}
 	
-	public int getTeatSize() {
-		return teatSize;
+	public int getTeatLength() {
+		return teatLength;
 	}
 	
-	public void setTeatSize(int teatSize) {
-		this.teatSize = teatSize;
+	public void setTeatLength(int teatLength) {
+		this.teatLength = teatLength;
 	}
 	
+	public int getTeatThickness() {
+		return teatThickness;
+	}
+
+	public void setTeatThickness(int teatThickness) {
+		this.teatThickness = teatThickness;
+	}
+
 	public int getUdderLeakRate() {
 		return udderLeakRate;
 	}

@@ -23,8 +23,6 @@ public class CharCreator implements ActionListener {
 	public static Time time = new Time();
 	public static Statuses statuses = new Statuses();
 	
-	boolean wantUdder = true;
-	
 	public CharCreator() {
 		GameUtil.clearScreen();
 		raceSelect();
@@ -75,7 +73,6 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Option F", this), GameUtil.setConstraints(0.1, 0.1, 5, 0, 1, 1));
 		panel.add(GameUtil.createButton("Option G", this), GameUtil.setConstraints(0.1, 0.1, 6, 0, 1, 1));
 		panel.add(GameUtil.createButton("Option H", this), GameUtil.setConstraints(0.1, 0.1, 7, 0, 1, 1));
-		boolean wantUdder = true;
 		panel.add(GameUtil.setLabel("<html><div><center>--- Select Sexual Equipment ---</center></div>"
 				+ "<div></div><div>Option A - cock and balls</div>"
 				+ "<div></div><div>Option B - cock</div>"
@@ -95,8 +92,8 @@ public class CharCreator implements ActionListener {
 		
 		JPanel panel = new JPanel(new GridBagLayout());
 		
-		panel.add(GameUtil.createButton("Yes", this), GameUtil.setConstraints(0.1, 0, 0, 0, 1, 1));
-		panel.add(GameUtil.createButton("No", this), GameUtil.setConstraints(0.1, 0, 1, 0, 1, 1));
+		panel.add(GameUtil.createButton("Yes Udder", this), GameUtil.setConstraints(0.1, 0, 0, 0, 1, 1));
+		panel.add(GameUtil.createButton("No Udder", this), GameUtil.setConstraints(0.1, 0, 1, 0, 1, 1));
 		
 		panel.add(GameUtil.setLabel("<html><div><center>Would you like an udder?</center></div>"), GameUtil.setConstraints(0.1, 0, 0, 1, 2, 1));
 		
@@ -118,8 +115,6 @@ public class CharCreator implements ActionListener {
 					+ "<div><center>Cow - pink udder with 4 teats</center></div>"
 					+ "<div><center>Horse - black udder with 2 teats</center></div>"), GameUtil.setConstraints(0.1, 0, 0, 1, 2, 1));
 		
-		wantUdder = true;
-		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
 	}
@@ -129,8 +124,8 @@ public class CharCreator implements ActionListener {
 		
 		JPanel panel = new JPanel(new GridBagLayout());
 		
-		panel.add(GameUtil.createButton("Yes", this), GameUtil.setConstraints(0.1, 0, 0, 0, 1, 1));
-		panel.add(GameUtil.createButton("No", this), GameUtil.setConstraints(0.1, 0, 1, 0, 1, 1));
+		panel.add(GameUtil.createButton("Yes Internal Balls", this), GameUtil.setConstraints(0.1, 0, 0, 0, 1, 1));
+		panel.add(GameUtil.createButton("No Internal Balls", this), GameUtil.setConstraints(0.1, 0, 1, 0, 1, 1));
 		
 		panel.add(GameUtil.setLabel("<html><div><center>Would you like internal balls?</center></div>"), GameUtil.setConstraints(0.1, 0, 0, 1, 2, 1));
 		
@@ -138,26 +133,46 @@ public class CharCreator implements ActionListener {
 		GameUtil.refreshScreen();
 	}
 	
-	public void boobs() {
-		
+	public void giveBoobs() {
+		appear.setBoobTotal(2);
+		appear.setBoobSize(1);
+		appear.setNippleTotal(2);
+		appear.setNippleLength(4);
+		appear.setNippleThickness(3);
+		appear.setNippleAerolaSize(8);
 	}
 	
-	public void udder() {
-		
+	public void giveUdder() {
+		if(appear.getBoobTotal() > 1) {
+			appear.setUdderSize(appear.getBoobSize() * 2);
+			appear.setTeatLength(appear.getNippleLength() * 2);
+			appear.setTeatThickness(appear.getNippleThickness() * 2);
+		} else {
+			appear.setBoobSize(1);
+			appear.setNippleLength(4);
+			appear.setNippleThickness(3);
+			appear.setUdderSize(appear.getBoobSize() * 2);
+			appear.setTeatLength(appear.getNippleLength() * 2);
+			appear.setTeatThickness(appear.getNippleThickness() * 2);
+		}
 	}
 	
-	public void cock() {
+	public void giveCock() {
 		appear.setCockTotal(1);
 		appear.setCockSize(23);
 	}
 	
-	public void balls() {
+	public void giveBalls() {
 		appear.setBallSize(10);
 		appear.setBalls(2);
 	}
 	
-	public void vagina() {
-		
+	public void giveVagina() {
+		appear.setVagTotal(1);
+		appear.setVagSize(23);
+		appear.setVulvaSize(23);
+		appear.setClitTotal(1);
+		appear.setClitSize(13);
 	}
 	
 	public void sexPerks() {
@@ -166,7 +181,6 @@ public class CharCreator implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		boolean internalBallsOption = false;
 		
 		if (e.getActionCommand().equals("Equidae Sapien")) { //race option
 			double randHeight = Math.random() * (211 - 180 + 1) + 180;
@@ -298,121 +312,65 @@ public class CharCreator implements ActionListener {
 			sexSelect();
 		
 		} else if (e.getActionCommand().equals("Option A")) { //cock and balls option	
-			cock();
+			giveCock();
+			giveBalls();
 			promptInternalBalls();
 			
 		} else if (e.getActionCommand().equals("Option B")) { //cock option
-			cock();
-			appear.setShowBalls(false);
-			promptInternalBalls();
+			giveCock();
+			promptUdder();
 			
 		} else if (e.getActionCommand().equals("Option C")) { //vagina option
-			appear.setVagTotal(1);
-			appear.setVagSize(23);
-			appear.setVulvaSize(23);
-			appear.setClitTotal(1);
-			appear.setClitSize(13);
-			
+			giveVagina();
 			promptUdder();
 			
 		} else if (e.getActionCommand().equals("Option D")) { //boobs and vagina option
-			appear.setBoobTotal(2);
-			appear.setBoobSize(1);
-			appear.setNippleTotal(2);
-			appear.setNippleLength(4);
-			appear.setNippleThickness(3);
-			appear.setNippleAerolaSize(8);
-			appear.setVagTotal(1);
-			appear.setVagSize(23);
-			appear.setVulvaSize(23);
-			appear.setClitTotal(1);
-			appear.setClitSize(13);
-			
+			giveBoobs();
+			giveVagina();
 			promptUdder();
 			
 		} else if (e.getActionCommand().equals("Option E")) { //boobs, cock, and balls option
-			appear.setBoobTotal(2);
-			appear.setBoobSize(1);
-			appear.setNippleTotal(2);
-			appear.setNippleLength(4);
-			appear.setNippleThickness(3);
-			appear.setNippleAerolaSize(8);
-			appear.setCockTotal(1);
-			appear.setCockSize(23);
-
-		
-			promptUdder();
-			
-		} else if (e.getActionCommand().equals("Option F")) { //boobs and cock option
-			appear.setBoobTotal(2);
-			appear.setBoobSize(1);
-			appear.setNippleTotal(2);
-			appear.setNippleLength(4);
-			appear.setNippleThickness(3);
-			appear.setNippleAerolaSize(8);
-			appear.setCockTotal(1);
-			appear.setCockSize(23);
-			appear.setShowBalls(false);
-			
+			giveBoobs();
+			giveCock();
+			giveBalls();
 			promptInternalBalls();
 			
-		} else if (e.getActionCommand().equals("Option G")) { //boobs, cock, balls, and vagina option
-			appear.setBoobTotal(2);
-			appear.setBoobSize(1);
-			appear.setNippleTotal(2);
-			appear.setNippleLength(4);
-			appear.setNippleThickness(3);
-			appear.setNippleAerolaSize(8);
-			appear.setCockTotal(1);
-			appear.setCockSize(23);
-			appear.setBallSize(10);
-			appear.setBalls(2);
-			appear.setVagTotal(1);
-			appear.setVagSize(23);
-			appear.setVulvaSize(23);
-			appear.setClitTotal(1);
-			appear.setClitSize(13);
-			
+		} else if (e.getActionCommand().equals("Option F")) { //boobs and cock option
+			giveBoobs();
+			giveCock();
 			promptUdder();
+			
+		} else if (e.getActionCommand().equals("Option G")) { //boobs, cock, balls, and vagina option
+			giveBoobs();
+			giveCock();
+			giveBalls();
+			giveVagina();
+			promptInternalBalls();
 			
 		} else if (e.getActionCommand().equals("Option H")) { //boobs, cock, and vagina option
-			appear.setBoobTotal(2);
-			appear.setBoobSize(1);
-			appear.setNippleTotal(2);
-			appear.setNippleLength(4);
-			appear.setNippleThickness(3);
-			appear.setNippleAerolaSize(8);
-			appear.setCockTotal(1);
-			appear.setCockSize(23);
-			appear.setShowBalls(false);
-			appear.setVagTotal(1);
-			appear.setVagSize(23);
-			appear.setVulvaSize(23);
-			appear.setClitTotal(1);
-			appear.setClitSize(13);
-		
+			giveBoobs();
+			giveCock();
+			giveVagina();
 			promptUdder();
 			
-		} else if (e.getActionCommand().equals("Yes")) { //yes/no option
-			if(appear.getShowBalls() == false && appear.getUdder() == false && internalBallsOption == false && wantUdder == false) { //if player doesn't have balls but still wants and udder
-				internalBallsOption = true;
-				balls();
-				promptUdder();
-			} else if (appear.getShowBalls() == false && appear.getUdder() == false && internalBallsOption == true && wantUdder == false){ udderSelect(); }
-			else { sexPerks(); }
-			
-		} else if (e.getActionCommand().equals("No")) { //yes/no option
-			if (appear.getShowBalls() == true && wantUdder == false) { promptUdder(); }
-			else if(appear.getShowBalls() == true && wantUdder == false) {}
-			else if(appear.getShowBalls() == false && appear.getUdder() == false && internalBallsOption == true && wantUdder == false) { sexPerks(); }
-			else if (appear.getShowBalls() == false && appear.getUdder() == false && internalBallsOption == false && wantUdder == false) { promptUdder(); }
-			else { sexPerks(); } 
-			
-		} else if (e.getActionCommand().equals("Cow")) { //udder selection
-			
-			
-		} else if (e.getActionCommand().equals("Horse")) { //udder selection
-			
+		} else if (e.getActionCommand().equals("Yes Internal Balls")) { //yes/no option
+			giveBalls();
+			promptUdder();
+		} 
+		
+		else if (e.getActionCommand().equals("No Internal Balls")) { promptUdder(); } 
+		
+		else if (e.getActionCommand().equals("Yes Udder")) { 
+			appear.setUdder(true);
+			udderSelect();	
+			} 
+		
+		else if (e.getActionCommand().equals("No Udder")) { sexPerks(); }
+		else if (e.getActionCommand().equals("Cow")) { giveUdder(); } 
+		
+		else if (e.getActionCommand().equals("Horse")) { //udder selection
+			appear.setUdderType(1);
+			giveUdder();
 		}
 
 	}
