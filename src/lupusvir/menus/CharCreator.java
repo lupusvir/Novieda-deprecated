@@ -192,19 +192,24 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Macro Butt", this), GameUtil.setConstraints(0.1, 0.1, 3, 1, 1, 1));
 		panel.add(GameUtil.createButton("Macro Thighs", this), GameUtil.setConstraints(0.1, 0.1, 4, 1, 1, 1));
 		panel.add(GameUtil.createButton("Macro Hips", this), GameUtil.setConstraints(0.1, 0.1, 5, 1, 1, 1));
-		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 6, 2, 3, 1));
-		panel.add(GameUtil.setLabel("<html><div><center>--- Select Macro Perks ---</center></div>"
-				+ GameUtil.makeDiv("Macro Fertility - ")
-				+ GameUtil.makeDiv("Macro Virility - ")
-				+ GameUtil.makeDiv("Macro Virility - ")
-				+ GameUtil.makeDiv("Macro Cock -  ")
-				+ GameUtil.makeDiv("Macro Balls - ")
-				+ GameUtil.makeDiv("Macro Boobs - ")
-				+ GameUtil.makeDiv("Macro Vagina - ")
-				+ GameUtil.makeDiv("Macro Udder - ")
-				+ GameUtil.makeDiv("Macro Butt - ")
-				+ GameUtil.makeDiv("Macro Thighs - ")
-				+ GameUtil.makeDiv("Macro Thighs - ")), GameUtil.setConstraints(0, 0.1, 2, 2, 2, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 7, 4, 3, 1));
+		panel.add(GameUtil.setTextBody("<div><center>--- Select Macro Perks ---</center></div>"
+						+ "<div>Macro Fertility - Whenever PC is pregnant, their pregnancy belly will range from the size of a city to cosmic.</div>"
+						+ "This means they will have thousands to trillions, or even more children at once.<br>"
+						+ "Their lactatcion will also be so extreme that worlds and other cosmic bodies could be flooded.<br>"
+						+ "Macro Virility - If PC has balls, their semen will have a drastic effects on impregnating women.<br>"
+						+ "These effects range from making any women impregnanted with the PC semen will have thousands or more children at once."
+						+ "It will also make the PC's cum production at such ridiclous levels they could flood planets and other cosmic bodies with their semen."
+						+ "Macro Size - Will make the PC ginormous. Their height will range from sky-scraper-sized to drastically larger."
+						+ "They also get the special ability to assume a specific height, disguising their true height, but not their mass."
+						+ "Macro Cock -  PC will have a cock so drastically large it can be the size of sky-scrapers or much larger."
+						+ "Macro Balls - PC will have balls so large, they can range from the size of seas to oceans, to much, much larger."
+						+ "Macro Boobs - PC will have boobs so large they range from ocean-sized to cosmic-sized."
+						+ "Macro Vagina - PC will have a vagina so large, and so deep, a skyscraper or some cosmic body could fit inside."
+						+ "Macro Udder - PC will have a massive udder ranging from ocean-sized to comsmic-sized."
+						+ "Macro Butt - PC will have a butt so large, it can eclipse moons or celestial bodies much larger."
+						+ "Macro Thighs - PC will have thighs so thick, they eclipse celestial bodies."
+						+ "Macro Hips - PC will have hips so wide, they span an entire planet or more.</Body>"), GameUtil.setConstraints(1, 1, 6, 3, 2, 1));
 		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();

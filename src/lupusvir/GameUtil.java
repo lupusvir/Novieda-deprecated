@@ -107,5 +107,26 @@ public class GameUtil {
 		inText = "<div></div><div>" + inText + "</div>";
 		return inText;
 	}
+	
+	public static JTextPane setTextBody(String inText) {
+		JTextPane text = new JTextPane();
+		text.setContentType("text/html");
+		text.setText(inText);
+		return text;
+		}
+	
+	public static GridBagConstraints setConstraintsAltB(double inWeightx, double inWeighty, int inGridx, int inGridy, int inGridWidth, int inGridHeight, int inIPadx, int inIPady) {
+		GridBagConstraints constraints = new GridBagConstraints();
+		
+		constraints.weightx = inWeightx;
+		constraints.weighty = inWeighty;
+		constraints.gridx = inGridx;
+		constraints.gridy = inGridy;
+		constraints.gridwidth = inGridWidth;
+		constraints.gridheight = inGridHeight;
+		constraints.ipadx = inIPadx;
+		constraints.ipady = inIPady;
+		return constraints;
+}
 
 }
