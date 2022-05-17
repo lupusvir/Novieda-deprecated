@@ -23,6 +23,9 @@ public class CharCreator implements ActionListener {
 	public static Time time = new Time();
 	public static Statuses statuses = new Statuses();
 	
+	int menuNumber = 0;
+	int perkSPerkPoints = 10;
+	
 	public CharCreator() {
 		GameUtil.clearScreen();
 		raceSelect();
@@ -31,6 +34,8 @@ public class CharCreator implements ActionListener {
 	public void raceSelect() {
 		JPanel panel = new JPanel(new GridBagLayout());
 		
+		menuNumber = 1;
+		
 		/*I have a funny feeling there's a way better way of doing this.*/
 		
 		panel.add(GameUtil.createButton("Equidae Sapien", this), GameUtil.setConstraints(0.1, 0.1, 0, 0, 1, 1));
@@ -38,6 +43,7 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Hominidae Sapien", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
 		panel.add(GameUtil.createButton("Felidae Sapien", this), GameUtil.setConstraints(0.1, 0.1, 2, 0, 1, 1));
 		panel.add(GameUtil.createButton("Reptilia Sapien", this), GameUtil.setConstraints(0.1, 0.1, 2, 2, 1, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 3, 4, 3, 3));
 		
 		panel.add(GameUtil.setLabel("<html><div><center>--- Choose a race ---</center></div>"
 				+ "<div></div><div><center>Equidae Sapien (only horses atm)</center></div>" 
@@ -65,6 +71,8 @@ public class CharCreator implements ActionListener {
 		
 		JPanel panel = new JPanel(new GridBagLayout());
 		
+		menuNumber = 2;
+		
 		panel.add(GameUtil.createButton("Option A", this), GameUtil.setConstraints(0.1, 0.1, 0, 0, 1, 1));
 		panel.add(GameUtil.createButton("Option B", this), GameUtil.setConstraints(0.1, 0.1, 1, 0, 1, 1));
 		panel.add(GameUtil.createButton("Option C", this), GameUtil.setConstraints(0.1, 0.1, 2, 0, 1, 1));
@@ -73,15 +81,33 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Option F", this), GameUtil.setConstraints(0.1, 0.1, 5, 0, 1, 1));
 		panel.add(GameUtil.createButton("Option G", this), GameUtil.setConstraints(0.1, 0.1, 6, 0, 1, 1));
 		panel.add(GameUtil.createButton("Option H", this), GameUtil.setConstraints(0.1, 0.1, 7, 0, 1, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 8, 2, 3, 1));
 		panel.add(GameUtil.setLabel("<html><div><center>--- Select Sexual Equipment ---</center></div>"
-				+ "<div></div><div>Option A - cock and balls</div>"
-				+ "<div></div><div>Option B - cock</div>"
-				+ "<div></div><div>Option C - vagina</div>"
-				+ "<div></div><div>Option D -  boobs and vagina</div>"
-				+ "<div></div><div>Option E -  boobs, cock, and balls</div>"
-				+ "<div></div><div>Option F -  boobs and cock</div>"
-				+ "<div></div><div>Option G -  boobs, cock, balls, and vagina</div>"
-				+ "<div></div><div>Option H -  boobs, cock, and vagina</div>"), GameUtil.setConstraints(0, 0.1, 3, 1, 2, 1));
+				+ GameUtil.makeDiv("Option A - cock and balls")
+				+ GameUtil.makeDiv("Option B - cock")
+				+ GameUtil.makeDiv("Option C - vagina")
+				+ GameUtil.makeDiv("Option D -  boobs and vagina")
+				+ GameUtil.makeDiv("Option E -  boobs, cock, and balls")
+				+ GameUtil.makeDiv("Option F -  boobs and cock")
+				+ GameUtil.makeDiv("Option G -  boobs, cock, balls, and vagina")
+				+ GameUtil.makeDiv("Option H -  boobs, cock, and vagina")), GameUtil.setConstraints(0, 0.1, 3, 1, 2, 1));
+		
+		TitleScreen.frame.add(panel);
+		GameUtil.refreshScreen();
+	}
+	
+	public void promptInternalBalls() {
+		GameUtil.clearScreen();
+		
+		JPanel panel = new JPanel(new GridBagLayout());
+		
+		menuNumber = 3;
+		
+		panel.add(GameUtil.createButton("Yes Internal Balls", this), GameUtil.setConstraints(0.1, 0, 0, 0, 1, 1));
+		panel.add(GameUtil.createButton("No Internal Balls", this), GameUtil.setConstraints(0.1, 0, 1, 0, 1, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 1, 2, 3, 1));
+		
+		panel.add(GameUtil.setLabel("<html><div><center>Would you like internal balls?</center></div>"), GameUtil.setConstraints(0.1, 0, 0, 1, 2, 1));
 		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
@@ -92,8 +118,11 @@ public class CharCreator implements ActionListener {
 		
 		JPanel panel = new JPanel(new GridBagLayout());
 		
+		menuNumber = 4;
+		
 		panel.add(GameUtil.createButton("Yes Udder", this), GameUtil.setConstraints(0.1, 0, 0, 0, 1, 1));
 		panel.add(GameUtil.createButton("No Udder", this), GameUtil.setConstraints(0.1, 0, 1, 0, 1, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 1, 2, 3, 1));
 		
 		panel.add(GameUtil.setLabel("<html><div><center>Would you like an udder?</center></div>"), GameUtil.setConstraints(0.1, 0, 0, 1, 2, 1));
 		
@@ -105,11 +134,13 @@ public class CharCreator implements ActionListener {
 	public void udderSelect() {
 		GameUtil.clearScreen();
 		appear.setUdder(true);
+		menuNumber = 5;
 		
 		JPanel panel = new JPanel(new GridBagLayout());
 		
 		panel.add(GameUtil.createButton("Cow", this), GameUtil.setConstraints(0.1, 0, 0, 0, 1, 1));
 		panel.add(GameUtil.createButton("Horse", this), GameUtil.setConstraints(0.1, 0, 1, 0, 1, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 1, 2, 3, 1));
 		
 		panel.add(GameUtil.setLabel("<html><div><center>What type?</center></div>"
 					+ "<div><center>Cow - pink udder with 4 teats</center></div>"
@@ -119,15 +150,61 @@ public class CharCreator implements ActionListener {
 		GameUtil.refreshScreen();
 	}
 	
-	public void promptInternalBalls() {
+	public void sexPerks() {
 		GameUtil.clearScreen();
 		
 		JPanel panel = new JPanel(new GridBagLayout());
 		
-		panel.add(GameUtil.createButton("Yes Internal Balls", this), GameUtil.setConstraints(0.1, 0, 0, 0, 1, 1));
-		panel.add(GameUtil.createButton("No Internal Balls", this), GameUtil.setConstraints(0.1, 0, 1, 0, 1, 1));
+		menuNumber = 6;
 		
-		panel.add(GameUtil.setLabel("<html><div><center>Would you like internal balls?</center></div>"), GameUtil.setConstraints(0.1, 0, 0, 1, 2, 1));
+		panel.add(GameUtil.createButton("Macro", this), GameUtil.setConstraints(0.1, 0.1, 0, 0, 1, 1));
+		panel.add(GameUtil.createButton("Hyper", this), GameUtil.setConstraints(0.1, 0.1, 1, 0, 1, 1));
+		panel.add(GameUtil.createButton("Large", this), GameUtil.setConstraints(0.1, 0.1, 2, 0, 1, 1));
+		panel.add(GameUtil.createButton("Small", this), GameUtil.setConstraints(0.1, 0.1, 3, 0, 1, 1));
+		panel.add(GameUtil.createButton("Vore", this), GameUtil.setConstraints(0.1, 0.1, 4, 0, 1, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 5, 1, 3, 1));
+		panel.add(GameUtil.setLabel("<html><div><center>--- Select Sex Perks ---</center></div>"
+				+ GameUtil.makeDiv("Macro - perks for making the character macro-sized")
+				+ GameUtil.makeDiv("Hyper - perks for making the character hyper-sized")
+				+ GameUtil.makeDiv("Large - perks for making the character large-sized")
+				+ GameUtil.makeDiv("Small -  perks for making the character small-sized")
+				+ GameUtil.makeDiv("Vore - perks relating to vore")), GameUtil.setConstraints(0, 0.1, 1, 1, 3, 1));
+		
+		TitleScreen.frame.add(panel);
+		GameUtil.refreshScreen();
+	}
+	
+	public void macroSPerk() {
+		GameUtil.clearScreen();
+		
+		JPanel panel = new JPanel(new GridBagLayout());
+		
+		menuNumber = 7;
+		
+		panel.add(GameUtil.createButton("Macro Fertility", this), GameUtil.setConstraints(0.1, 0.1, 0, 0, 1, 1));
+		panel.add(GameUtil.createButton("Macro Virility", this), GameUtil.setConstraints(0.1, 0.1, 1, 0, 1, 1));
+		panel.add(GameUtil.createButton("Macro Size", this), GameUtil.setConstraints(0.1, 0.1, 2, 0, 1, 1));
+		panel.add(GameUtil.createButton("Macro Cock", this), GameUtil.setConstraints(0.1, 0.1, 3, 0, 1, 1));
+		panel.add(GameUtil.createButton("Macro Balls", this), GameUtil.setConstraints(0.1, 0.1, 4, 0, 1, 1));
+		panel.add(GameUtil.createButton("Macro Boobs", this), GameUtil.setConstraints(0.1, 0.1, 0, 1, 1, 1));
+		panel.add(GameUtil.createButton("Macro Vagina", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
+		panel.add(GameUtil.createButton("Macro Udder", this), GameUtil.setConstraints(0.1, 0.1, 2, 1, 1, 1));
+		panel.add(GameUtil.createButton("Macro Butt", this), GameUtil.setConstraints(0.1, 0.1, 3, 1, 1, 1));
+		panel.add(GameUtil.createButton("Macro Thighs", this), GameUtil.setConstraints(0.1, 0.1, 4, 1, 1, 1));
+		panel.add(GameUtil.createButton("Macro Hips", this), GameUtil.setConstraints(0.1, 0.1, 5, 1, 1, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 6, 2, 3, 1));
+		panel.add(GameUtil.setLabel("<html><div><center>--- Select Macro Perks ---</center></div>"
+				+ GameUtil.makeDiv("Macro Fertility - ")
+				+ GameUtil.makeDiv("Macro Virility - ")
+				+ GameUtil.makeDiv("Macro Virility - ")
+				+ GameUtil.makeDiv("Macro Cock -  ")
+				+ GameUtil.makeDiv("Macro Balls - ")
+				+ GameUtil.makeDiv("Macro Boobs - ")
+				+ GameUtil.makeDiv("Macro Vagina - ")
+				+ GameUtil.makeDiv("Macro Udder - ")
+				+ GameUtil.makeDiv("Macro Butt - ")
+				+ GameUtil.makeDiv("Macro Thighs - ")
+				+ GameUtil.makeDiv("Macro Thighs - ")), GameUtil.setConstraints(0, 0.1, 2, 2, 2, 1));
 		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
@@ -175,8 +252,9 @@ public class CharCreator implements ActionListener {
 		appear.setClitSize(13);
 	}
 	
-	public void sexPerks() {
-		
+	public void goBack() {
+		menuNumber -= 1;
+		GameUtil.clearScreen();
 	}
 	
 	@Override
@@ -359,20 +437,50 @@ public class CharCreator implements ActionListener {
 		} 
 		
 		else if (e.getActionCommand().equals("No Internal Balls")) { promptUdder(); } 
-		
-		else if (e.getActionCommand().equals("Yes Udder")) { 
-			appear.setUdder(true);
-			udderSelect();	
-			} 
-		
+		else if (e.getActionCommand().equals("Yes Udder")) { udderSelect();	} 
 		else if (e.getActionCommand().equals("No Udder")) { sexPerks(); }
-		else if (e.getActionCommand().equals("Cow")) { giveUdder(); } 
+		
+		else if (e.getActionCommand().equals("Cow")) { 
+			giveUdder();
+			sexPerks();
+			} 
 		
 		else if (e.getActionCommand().equals("Horse")) { //udder selection
 			appear.setUdderType(1);
 			giveUdder();
+			sexPerks();
+		} else if (e.getActionCommand().equals("Back")) {
+			if (menuNumber == 1) {
+				goBack();
+				new TitleScreen();
+			} else if (menuNumber == 2) {
+				goBack();
+				raceSelect();
+			} else if (menuNumber == 3) {
+				goBack();
+				sexSelect();
+			} else if (menuNumber == 4) {
+				goBack();
+				promptInternalBalls();
+			} else if (menuNumber == 5) {
+				goBack();
+				promptUdder();
+			} else if (menuNumber == 6) {
+				goBack();
+				udderSelect();
+			} else if (menuNumber == 7) {
+				goBack();
+				sexPerks();
+			}
+		} 
+		else if (e.getActionCommand().equals("Macro")) { macroSPerk(); } 
+		else if (e.getActionCommand().equals("Hyper")) {
+			
+		} else if (e.getActionCommand().equals("Large")) {
+			
+		} else if (e.getActionCommand().equals("Small")) {
+			
 		}
-
 	}
 
 }

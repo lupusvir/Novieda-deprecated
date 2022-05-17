@@ -102,5 +102,10 @@ public class GameUtil {
 		
 		return scroll;
 		}
+	
+	public static String makeDiv(String inText) {
+		inText = "<div></div><div>" + inText + "</div>";
+		return inText;
+	}
 
 }
