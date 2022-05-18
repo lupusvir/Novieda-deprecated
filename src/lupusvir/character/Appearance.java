@@ -3,6 +3,7 @@ package lupusvir.character;
 public class Appearance {
 	
 	//Appearance of the character
+	private String name = "";
 	private int gender = 0;
 	private int race = 0;
 	private int body = 0;
@@ -60,6 +61,14 @@ public class Appearance {
 	private int attireBot = 2;
 	private int weapon = 0;
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public int getGender() {
 		return gender;
 	}

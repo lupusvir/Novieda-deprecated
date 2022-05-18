@@ -5,9 +5,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
+import javax.swing.JTextPane;
 
 import lupusvir.GameUtil;
 import lupusvir.character.Appearance;
+import lupusvir.character.CombatPerks;
 import lupusvir.character.Discoveries;
 import lupusvir.character.Modifiers;
 import lupusvir.character.SexPerks;
@@ -24,6 +26,7 @@ public class CharCreator implements ActionListener {
 	public static Time time = new Time();
 	public static Statuses statuses = new Statuses();
 	public static SexPerks sexPerks = new SexPerks();
+	public static CombatPerks combatPerks = new CombatPerks();
 	
 	int menuNumber = 0;
 	int sPerkPoints = 11;
@@ -333,12 +336,12 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Class ---</center></div>"
 				+ GameUtil.makeDiv("Fighter - PC specializes in fighting with melee weapons. These range from swords, to greatswords, warhammers, and so on. "
 						+ "They can be one-handed or two-handed.")
-				+ GameUtil.makeDiv("Ranger - PC specializes in fighting with ranged weapons. Thesr range from bows to crossbows and so on. "
+				+ GameUtil.makeDiv("Ranger - PC specializes in fighting with ranged weapons. These range from bows to crossbows and so on. "
 						+ "They can be two-handed greatbows to two-handed greatcrossbows.")
 				+ GameUtil.makeDiv("Sorcerer - PC specilaizes in fighting with magic. They can throw fireballs, move rock, and so on.")
 				+ GameUtil.makeDiv("Rogue - PC specializes with fighting with finesse weapons. These range from daggers to rapiers.")
-				+ GameUtil.makeDiv("Monk - PC specializes fighting unarmed to any martial weapon. "
-						+ "Such as Jiang swords, Dao broadswords, Bo-staffs, and so on."))), GameUtil.setConstraints(0, 0.1, 0, 2, 3, 1));
+				+ GameUtil.makeDiv("Monk - PC specializes in martial arts. They can use any martial weapon or fight unarmed. "
+						+ "PC can use Jiang swords, Dao broadswords, Bo-staffs, and so on."))), GameUtil.setConstraints(0, 0.1, 0, 2, 3, 1));
 		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 3, 3, 3, 1));
 		
 		TitleScreen.frame.add(panel);
@@ -346,7 +349,43 @@ public class CharCreator implements ActionListener {
 	}
 	
 	public void roleMenu() {
+		GameUtil.clearScreen();
 		
+		JPanel panel = new JPanel(new GridBagLayout());
+		
+		menuNumber = 8;
+		
+		panel.add(GameUtil.createButton("Tank", this), GameUtil.setConstraints(0.1, 0.1, 0, 0, 1, 1));
+		panel.add(GameUtil.createButton("Damage", this), GameUtil.setConstraints(0.1, 0.1, 1, 0, 1, 1));
+		panel.add(GameUtil.createButton("Utility", this), GameUtil.setConstraints(0.1, 0.1, 0, 1, 1, 1));
+		panel.add(GameUtil.createButton("Healer", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
+		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Role ---</center></div>"
+				+ GameUtil.makeDiv("Tank - With this role PC will have a large physical resistance but low magic resist. "
+						+ "PC will get a HP boost.")
+				+ GameUtil.makeDiv("Damage - With this role PC will have low physical resistance but a high magic resist. "
+						+ "PC will get a EP boost.")
+				+ GameUtil.makeDiv("Utility - PC will have balanced physical and magic resist. Their HP and EP will also be balanced.")
+				+ GameUtil.makeDiv("Healer - PC will have a balanced physical and magic resist. "
+						+ "PC will get a EP boost."))), GameUtil.setConstraints(0, 0.1, 0, 2, 3, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 3, 3, 3, 1));
+		
+		TitleScreen.frame.add(panel);
+		GameUtil.refreshScreen();
+	}
+	
+	JTextPane textPane = new JTextPane(); //text pane only for this method but needs to be global so action listener method can access it.
+	public void charNameMenu() {
+		GameUtil.clearScreen();
+		
+		JPanel panel = new JPanel(new GridBagLayout());
+		
+		panel.add(GameUtil.setLabel("<html><div><center>--- Enter Character Name ---</center></div>"), GameUtil.setConstraints(0, 0.1, 0, 0, 2, 1));
+		panel.add(textPane, GameUtil.setConstraints(0, 0.1, 0, 1, 2, 1));
+		panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 2, 2, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0.1, 0, 3, 2, 1));
+		
+		TitleScreen.frame.add(panel);
+		GameUtil.refreshScreen();
 	}
 	
 	public void giveBoobs() {
@@ -795,6 +834,48 @@ public class CharCreator implements ActionListener {
 				checkSexPerkAmount();
 			}
 		}
+		
+		else if (e.getActionCommand().equals("Fighter") || e.getActionCommand().equals("Ranger") || e.getActionCommand().equals("Sorcerer")
+				|| e.getActionCommand().equals("Rogue") || e.getActionCommand().equals("Monk")) {
+			
+			if (e.getActionCommand().equals("Fighter")) {
+				combatPerks.setFighterLevel(1);
+				roleMenu();
+			} else if (e.getActionCommand().equals("Ranger")) {
+				combatPerks.setRangerLevel(1);
+				roleMenu();
+			} else if (e.getActionCommand().equals("Sorcerer")) {
+				combatPerks.setSorcererlevel(1);
+				roleMenu();
+			} else if (e.getActionCommand().equals("Rogue")) {
+				combatPerks.setRogueLevel(1);
+				roleMenu();
+			} else if (e.getActionCommand().equals("Monk")) {
+				combatPerks.setMonkLevel(1);
+				roleMenu();
+			}
+		}
+		
+		else if (e.getActionCommand().equals("Tank") || e.getActionCommand().equals("Damage") || e.getActionCommand().equals("Utility")
+				|| e.getActionCommand().equals("Healer")) {
+			
+			if (e.getActionCommand().equals("Tank")) {
+				combatPerks.setTankRole(true);
+				charNameMenu();
+			} else if (e.getActionCommand().equals("Damage")) {
+				combatPerks.setDamageRole(true);
+				new MainPage();
+			} else if (e.getActionCommand().equals("Utility")) {
+				combatPerks.setUtilityRole(true);
+				new MainPage();
+			} else if (e.getActionCommand().equals("Healer")) {
+				combatPerks.setHealerRole(true);
+				new MainPage();
+			}
+		}
+		else if (e.getActionCommand().equals("Next")) {
+			appear.setName(textPane.getText());
+			new MainPage(); 
+			}
 	}
-
 }

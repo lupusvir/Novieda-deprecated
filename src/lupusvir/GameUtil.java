@@ -85,6 +85,14 @@ public class GameUtil {
 		return scroll;
 		}
 	
+	public static JScrollPane setScrollAltA(JTextPane textPane, int width, int height) { //makes a scroll pane but can specify size
+		JScrollPane scroll = new JScrollPane (textPane);
+		Dimension dimension = new Dimension();
+		dimension.setSize(width, height);
+		scroll.setMinimumSize(dimension);
+		return scroll;
+		}
+	
 	public static String makeDiv(String inText) {
 		inText = "<div></div><div>" + inText + "</div>";
 		return inText;
@@ -110,6 +118,16 @@ public class GameUtil {
 		constraints.ipadx = inIPadx;
 		constraints.ipady = inIPady;
 		return constraints;
+	}
+	
+	public static String makeItalic(String inText) {
+		inText = "<p style=\"font-style: italic;\">" + inText + "</p>";
+		return inText;
+	}
+	
+	public static String makeDialogue(String inDialogue) {
+		String outDialogue = makeDiv(makeItalic(inDialogue));
+		return outDialogue;
 	}
 
 }
