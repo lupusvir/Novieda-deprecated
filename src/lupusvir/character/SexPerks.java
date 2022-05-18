@@ -38,10 +38,6 @@ public class SexPerks {
 	private boolean largeThighs = false;
 	private boolean largeHips = false;
 	
-	private int normalFertilityLevel = 0;
-	private int normalVirilityLevel = 0;
-	private int normalSizeLevel = 0;
-	
 	private int smallFertilityLevel = 0;
 	private int smallVirilityLevel = 0;
 	private int smallSizeLevel = 0;
@@ -319,30 +315,6 @@ public class SexPerks {
 
 	public void setLargeHips(boolean largeHips) {
 		this.largeHips = largeHips;
-	}
-
-	public int getNormalFertilityLevel() {
-		return normalFertilityLevel;
-	}
-
-	public void setNormalFertilityLevel(int normalFertilityLevel) {
-		this.normalFertilityLevel = normalFertilityLevel;
-	}
-
-	public int getNormalVirilityLevel() {
-		return normalVirilityLevel;
-	}
-
-	public void setNormalVirilityLevel(int normalVirilityLevel) {
-		this.normalVirilityLevel = normalVirilityLevel;
-	}
-
-	public int getNormalSizeLevel() {
-		return normalSizeLevel;
-	}
-
-	public void setNormalSizeLevel(int normalSizeLevel) {
-		this.normalSizeLevel = normalSizeLevel;
 	}
 
 	public int getSmallFertilityLevel() {

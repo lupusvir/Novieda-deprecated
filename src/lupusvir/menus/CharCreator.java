@@ -24,7 +24,7 @@ public class CharCreator implements ActionListener {
 	public static Statuses statuses = new Statuses();
 	
 	int menuNumber = 0;
-	int perkSPerkPoints = 10;
+	int perkSPerkPoints = 11;
 	
 	public CharCreator() {
 		GameUtil.clearScreen();
@@ -181,38 +181,92 @@ public class CharCreator implements ActionListener {
 		
 		menuNumber = 7;
 		
-		panel.add(GameUtil.createButton("Macro Fertility", this), GameUtil.setConstraints(0.1, 0.1, 0, 0, 1, 1));
-		panel.add(GameUtil.createButton("Macro Virility", this), GameUtil.setConstraints(0.1, 0.1, 1, 0, 1, 1));
-		panel.add(GameUtil.createButton("Macro Size", this), GameUtil.setConstraints(0.1, 0.1, 2, 0, 1, 1));
-		panel.add(GameUtil.createButton("Macro Cock", this), GameUtil.setConstraints(0.1, 0.1, 3, 0, 1, 1));
-		panel.add(GameUtil.createButton("Macro Balls", this), GameUtil.setConstraints(0.1, 0.1, 4, 0, 1, 1));
-		panel.add(GameUtil.createButton("Macro Boobs", this), GameUtil.setConstraints(0.1, 0.1, 0, 1, 1, 1));
-		panel.add(GameUtil.createButton("Macro Vagina", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
-		panel.add(GameUtil.createButton("Macro Udder", this), GameUtil.setConstraints(0.1, 0.1, 2, 1, 1, 1));
-		panel.add(GameUtil.createButton("Macro Butt", this), GameUtil.setConstraints(0.1, 0.1, 3, 1, 1, 1));
-		panel.add(GameUtil.createButton("Macro Thighs", this), GameUtil.setConstraints(0.1, 0.1, 4, 1, 1, 1));
-		panel.add(GameUtil.createButton("Macro Hips", this), GameUtil.setConstraints(0.1, 0.1, 5, 1, 1, 1));
-		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 7, 4, 3, 1));
-		panel.add(GameUtil.setTextBody("<div><center>--- Select Macro Perks ---</center></div>"
-						+ "<div>Macro Fertility - Whenever PC is pregnant, their pregnancy belly will range from the size of a city to cosmic.</div>"
-						+ "This means they will have thousands to trillions, or even more children at once.<br>"
-						+ "Their lactatcion will also be so extreme that worlds and other cosmic bodies could be flooded.<br>"
-						+ "Macro Virility - If PC has balls, their semen will have a drastic effects on impregnating women.<br>"
-						+ "These effects range from making any women impregnanted with the PC semen will have thousands or more children at once."
-						+ "It will also make the PC's cum production at such ridiclous levels they could flood planets and other cosmic bodies with their semen."
-						+ "Macro Size - Will make the PC ginormous. Their height will range from sky-scraper-sized to drastically larger."
-						+ "They also get the special ability to assume a specific height, disguising their true height, but not their mass."
-						+ "Macro Cock -  PC will have a cock so drastically large it can be the size of sky-scrapers or much larger."
-						+ "Macro Balls - PC will have balls so large, they can range from the size of seas to oceans, to much, much larger."
-						+ "Macro Boobs - PC will have boobs so large they range from ocean-sized to cosmic-sized."
-						+ "Macro Vagina - PC will have a vagina so large, and so deep, a skyscraper or some cosmic body could fit inside."
-						+ "Macro Udder - PC will have a massive udder ranging from ocean-sized to comsmic-sized."
-						+ "Macro Butt - PC will have a butt so large, it can eclipse moons or celestial bodies much larger."
-						+ "Macro Thighs - PC will have thighs so thick, they eclipse celestial bodies."
-						+ "Macro Hips - PC will have hips so wide, they span an entire planet or more.</Body>"), GameUtil.setConstraints(1, 1, 6, 3, 2, 1));
+		panel.add(GameUtil.setLabel("Current amount of sex perk points: " + perkSPerkPoints), GameUtil.setConstraints(0.1, 0.1, 2, 0, 2, 1));
+		panel.add(GameUtil.createButton("Macro Fertility", this), GameUtil.setConstraints(0.1, 0.1, 0, 1, 1, 1));
+		panel.add(GameUtil.createButton("Macro Virility", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
+		panel.add(GameUtil.createButton("Macro Size", this), GameUtil.setConstraints(0.1, 0.1, 2, 1, 1, 1));
+		panel.add(GameUtil.createButton("Macro Cock", this), GameUtil.setConstraints(0.1, 0.1, 3, 1, 1, 1));
+		panel.add(GameUtil.createButton("Macro Balls", this), GameUtil.setConstraints(0.1, 0.1, 4, 1, 1, 1));
+		panel.add(GameUtil.createButton("Macro Boobs", this), GameUtil.setConstraints(0.1, 0.1, 0, 2, 1, 1));
+		panel.add(GameUtil.createButton("Macro Vagina", this), GameUtil.setConstraints(0.1, 0.1, 1, 2, 1, 1));
+		panel.add(GameUtil.createButton("Macro Udder", this), GameUtil.setConstraints(0.1, 0.1, 2, 2, 1, 1));
+		panel.add(GameUtil.createButton("Macro Butt", this), GameUtil.setConstraints(0.1, 0.1, 3, 2, 1, 1));
+		panel.add(GameUtil.createButton("Macro Thighs", this), GameUtil.setConstraints(0.1, 0.1, 4, 2, 1, 1));
+		panel.add(GameUtil.createButton("Macro Hips", this), GameUtil.setConstraints(0.1, 0.1, 5, 2, 1, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 7, 5, 3, 1));
+		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Macro Perks ---</center></div>"
+						+ GameUtil.makeDiv("Macro Fertility - Whenever PC is pregnant, their pregnancy belly will range from the size of a city to cosmic."
+						+ " This means they will have thousands to trillions, or even more children at once."
+						+ " Their lactatcion will also be so extreme that worlds and other cosmic bodies could be flooded.")
+						+ GameUtil.makeDiv("Macro Virility - If PC has balls, their semen will have a drastic effects on impregnating women."
+						+ " These effects range from making any women impregnanted with the PC semen will have thousands or more children at once."
+						+ " It will also make the PC's cum production at such ridiclous levels they could flood planets and other cosmic bodies with their semen")
+						+ GameUtil.makeDiv("Macro Size - Will make the PC ginormous. Their height will range from sky-scraper-sized to drastically larger."
+						+ " They also get the special ability to assume a specific height, disguising their true height, but not their mass.")
+						+ GameUtil.makeDiv("Macro Cock -  PC will have a cock so drastically large it can be the size of sky-scrapers or much larger.")
+						+ GameUtil.makeDiv("Macro Balls - PC will have balls so large, they can range from the size of seas to oceans, to much, much larger.")
+						+ GameUtil.makeDiv("Macro Boobs - PC will have boobs so large they range from ocean-sized to cosmic-sized.")
+						+ GameUtil.makeDiv("Macro Vagina - PC will have a vagina so large, and so deep, a skyscraper or some cosmic body could fit inside.")
+						+ GameUtil.makeDiv("Macro Udder - PC will have a massive udder ranging from ocean-sized to comsmic-sized.")
+						+ GameUtil.makeDiv("Macro Butt - PC will have a butt so large, it can eclipse moons or celestial bodies much larger.")
+						+ GameUtil.makeDiv("Macro Thighs - PC will have thighs so thick, they eclipse celestial bodies.")
+						+ GameUtil.makeDiv("Macro Hips - PC will have hips so wide, they span an entire planet or more."))), GameUtil.setConstraints(0, 0.1, 1, 4, 4, 1));
 		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
+	}
+	
+	public void hyperSPerk() {
+		GameUtil.clearScreen();
+		
+		JPanel panel = new JPanel(new GridBagLayout());
+		
+		menuNumber = 7;
+		
+		panel.add(GameUtil.setLabel("Current amount of sex perk points: " + perkSPerkPoints), GameUtil.setConstraints(0.1, 0.1, 2, 0, 2, 1));
+		panel.add(GameUtil.createButton("Hyper Fertility", this), GameUtil.setConstraints(0.1, 0.1, 0, 1, 1, 1));
+		panel.add(GameUtil.createButton("Hyper Virility", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
+		panel.add(GameUtil.createButton("Hyper Size", this), GameUtil.setConstraints(0.1, 0.1, 2, 1, 1, 1));
+		panel.add(GameUtil.createButton("Hyper Cock", this), GameUtil.setConstraints(0.1, 0.1, 3, 1, 1, 1));
+		panel.add(GameUtil.createButton("Hyper Balls", this), GameUtil.setConstraints(0.1, 0.1, 4, 1, 1, 1));
+		panel.add(GameUtil.createButton("Hyper Boobs", this), GameUtil.setConstraints(0.1, 0.1, 0, 2, 1, 1));
+		panel.add(GameUtil.createButton("Hyper Vagina", this), GameUtil.setConstraints(0.1, 0.1, 1, 2, 1, 1));
+		panel.add(GameUtil.createButton("Hyper Udder", this), GameUtil.setConstraints(0.1, 0.1, 2, 2, 1, 1));
+		panel.add(GameUtil.createButton("Hyper Butt", this), GameUtil.setConstraints(0.1, 0.1, 3, 2, 1, 1));
+		panel.add(GameUtil.createButton("Hyper Thighs", this), GameUtil.setConstraints(0.1, 0.1, 4, 2, 1, 1));
+		panel.add(GameUtil.createButton("Hyper Hips", this), GameUtil.setConstraints(0.1, 0.1, 5, 2, 1, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 7, 5, 3, 1));
+		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Hyper Perks ---</center></div>"
+						+ GameUtil.makeDiv("Hyper Fertility - Whenever PC is pregnant, their pregnancy belly will range from the size of a large pool to a city."
+						+ " Their lactatcion will also be so extreme that olympic-sized pools could be filled quickly.")
+						+ GameUtil.makeDiv("Hyper Virility - If PC has balls, their semen will have a drastic effects on impregnating women."
+						+ " These effects range from making impregnanted women have hundreds to hundred thousand children at once."
+						+ " It will also make the PC's cum production at such ridiclous levels they could flood olympic-sized pools with their semen")
+						+ GameUtil.makeDiv("Hyper Size - Will make the PC ginormous. Their height will range from giraffe-sized to Eiffel-tower-sized."
+						+ " They also get the special ability to assume a specific height, disguising their true height, but not their mass.")
+						+ GameUtil.makeDiv("Hyper Cock -  PC will have a cock the size of a blue-whale to sub-skycraper-sized")
+						+ GameUtil.makeDiv("Hyper Balls - PC will have balls so large, they can range from the size of pools, to a small body of water.")
+						+ GameUtil.makeDiv("Hyper Boobs - PC will have boobs so large they range from pool-sized to small bodies of water.")
+						+ GameUtil.makeDiv("Hyper Vagina - PC will have a vagina so large, and so deep, a pool could fit in size. Or something sub sky-scraper-sized")
+						+ GameUtil.makeDiv("Hyper Udder - PC will have a massive udder ranging from pool-sized to sub-skyscraper-sized.")
+						+ GameUtil.makeDiv("Hyper Butt - PC will have a butt so large, it can fill public pools to sub sky-scraper.")
+						+ GameUtil.makeDiv("Hyper Thighs - PC will have thighs so thick, they fill pools to sub sky-scraper.")
+						+ GameUtil.makeDiv("Hyper Hips - PC will have hips so wide, they span large fields but are smaller than a sky-scraper."))), GameUtil.setConstraints(0, 0.1, 1, 4, 4, 1));
+		
+		TitleScreen.frame.add(panel);
+		GameUtil.refreshScreen();
+	}
+	
+	public void largeSPerk() {
+		
+	}
+	
+	public void smallSPerk() {
+		
+	}
+	
+	public void voreSPerk() {
+		
 	}
 	
 	public void giveBoobs() {
@@ -479,13 +533,10 @@ public class CharCreator implements ActionListener {
 			}
 		} 
 		else if (e.getActionCommand().equals("Macro")) { macroSPerk(); } 
-		else if (e.getActionCommand().equals("Hyper")) {
-			
-		} else if (e.getActionCommand().equals("Large")) {
-			
-		} else if (e.getActionCommand().equals("Small")) {
-			
-		}
+		else if (e.getActionCommand().equals("Hyper")) { hyperSPerk(); } 
+		else if (e.getActionCommand().equals("Large")) { largeSPerk(); } 
+		else if (e.getActionCommand().equals("Small")) { smallSPerk(); }
+		else if (e.getActionCommand().equals("Vore")) { voreSPerk(); }
 	}
 
 }

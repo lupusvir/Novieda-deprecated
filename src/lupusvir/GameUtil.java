@@ -1,5 +1,6 @@
 package lupusvir;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionListener;
 
@@ -29,21 +30,6 @@ public class GameUtil {
 		
 		TitleScreen.frame.revalidate();
 		TitleScreen.frame.repaint();
-	}
-	
-	//Returns random number between 1 and 100 <-- probably not in Java
-	public static int percent() {
-	    return (int) (Math.floor(Math.random()*(1+100-1))+1);
-	}
-	
-	public static String decGet(double number, int places){
-	    String tempStr = "" + number + "";
-	    String tempStr2 = "";
-	    int tempInt = 0;
-	    tempInt = tempStr.indexOf(".",0);
-	    if(tempInt > 0){ tempStr2 = tempStr.substring(0,(tempInt+places+1)); }
-	    else { tempStr2 = tempStr; }
-	    return tempStr2;
 	}
 	
 	//Allows events to check and see if a particular item is in the bag. Put this with Bag function.
@@ -91,15 +77,11 @@ public class GameUtil {
 		return text;
 	}
 	
-	public static JTextPane setText(String inText) {
-		JTextPane text = new JTextPane();
-		text.setText(inText);
-		return text;
-		}
-	
 	public static JScrollPane setScroll(JTextPane textPane) {
 		JScrollPane scroll = new JScrollPane (textPane);
-		
+		Dimension dimension = new Dimension();
+		dimension.setSize(500, 500);
+		scroll.setMinimumSize(dimension);
 		return scroll;
 		}
 	
@@ -109,10 +91,11 @@ public class GameUtil {
 	}
 	
 	public static JTextPane setTextBody(String inText) {
-		JTextPane text = new JTextPane();
-		text.setContentType("text/html");
-		text.setText(inText);
-		return text;
+		JTextPane textPane = new JTextPane();
+		textPane.setContentType("text/html");
+		textPane.setText(inText);
+		textPane.setEditable(false);
+		return textPane;
 		}
 	
 	public static GridBagConstraints setConstraintsAltB(double inWeightx, double inWeighty, int inGridx, int inGridy, int inGridWidth, int inGridHeight, int inIPadx, int inIPady) {
@@ -127,6 +110,6 @@ public class GameUtil {
 		constraints.ipadx = inIPadx;
 		constraints.ipady = inIPady;
 		return constraints;
-}
+	}
 
 }
