@@ -38,18 +38,6 @@ public class SexPerks {
 	private boolean largeThighs = false;
 	private boolean largeHips = false;
 	
-	private int smallFertilityLevel = 0;
-	private int smallVirilityLevel = 0;
-	private int smallSizeLevel = 0;
-	private boolean smallCock = false;
-	private boolean smallBalls = false;
-	private boolean smallBoobs = false;
-	private boolean smallVagina = false;
-	private boolean smallUdder = false;
-	private boolean smallButt = false;
-	private boolean smallThighs = false;
-	private boolean smallHips = false;
-	
 	private int voreLevel = 0;
 	private int fatalVoreEfficiencyLevel = 0;
 
@@ -315,94 +303,6 @@ public class SexPerks {
 
 	public void setLargeHips(boolean largeHips) {
 		this.largeHips = largeHips;
-	}
-
-	public int getSmallFertilityLevel() {
-		return smallFertilityLevel;
-	}
-
-	public void setSmallFertilityLevel(int smallFertilityLevel) {
-		this.smallFertilityLevel = smallFertilityLevel;
-	}
-
-	public int getSmallVirilityLevel() {
-		return smallVirilityLevel;
-	}
-
-	public void setSmallVirilityLevel(int smallVirilityLevel) {
-		this.smallVirilityLevel = smallVirilityLevel;
-	}
-
-	public int getSmallSizeLevel() {
-		return smallSizeLevel;
-	}
-
-	public void setSmallSizeLevel(int smallSizeLevel) {
-		this.smallSizeLevel = smallSizeLevel;
-	}
-
-	public boolean isSmallCock() {
-		return smallCock;
-	}
-
-	public void setSmallCock(boolean smallCock) {
-		this.smallCock = smallCock;
-	}
-
-	public boolean isSmallBalls() {
-		return smallBalls;
-	}
-
-	public void setSmallBalls(boolean smallBalls) {
-		this.smallBalls = smallBalls;
-	}
-
-	public boolean isSmallBoobs() {
-		return smallBoobs;
-	}
-
-	public void setSmallBoobs(boolean smallBoobs) {
-		this.smallBoobs = smallBoobs;
-	}
-
-	public boolean isSmallVagina() {
-		return smallVagina;
-	}
-
-	public void setSmallVagina(boolean smallVagina) {
-		this.smallVagina = smallVagina;
-	}
-
-	public boolean isSmallUdder() {
-		return smallUdder;
-	}
-
-	public void setSmallUdder(boolean smallUdder) {
-		this.smallUdder = smallUdder;
-	}
-
-	public boolean isSmallButt() {
-		return smallButt;
-	}
-
-	public void setSmallButt(boolean smallButt) {
-		this.smallButt = smallButt;
-	}
-
-	public boolean isSmallThighs() {
-		return smallThighs;
-	}
-
-	public void setSmallThighs(boolean smallThighs) {
-		this.smallThighs = smallThighs;
-	}
-
-	public boolean isSmallHips() {
-		return smallHips;
-	}
-
-	public void setSmallHips(boolean smallHips) {
-		this.smallHips = smallHips;
 	}
 
 	public int getVoreLevel() {

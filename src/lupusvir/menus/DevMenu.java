@@ -21,6 +21,7 @@ public class DevMenu implements ActionListener {
 		JPanel panel = new JPanel(new GridBagLayout());
 		
 		panel.add(GameUtil.createButton("Macro Perk Menu", this), GameUtil.setConstraints(0.1, 0, 0, 0, 1, 1));
+		panel.add(GameUtil.createButton("Class Menu", this), GameUtil.setConstraints(0.1, 0, 1, 0, 1, 1));
 		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
@@ -28,9 +29,8 @@ public class DevMenu implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand().equals("Macro Perk Menu")) {
-			new CharCreator().macroSPerk();
-		}
+		if (e.getActionCommand().equals("Macro Perk Menu")) { new CharCreator().macroSPerk(); } 
+		else if (e.getActionCommand().equals("Class Menu")) { new CharCreator().classMenu(); }
 		
 	}
 }

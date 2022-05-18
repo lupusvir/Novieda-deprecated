@@ -10,6 +10,7 @@ import lupusvir.GameUtil;
 import lupusvir.character.Appearance;
 import lupusvir.character.Discoveries;
 import lupusvir.character.Modifiers;
+import lupusvir.character.SexPerks;
 import lupusvir.character.Stats;
 import lupusvir.character.Statuses;
 import lupusvir.character.Time;
@@ -22,9 +23,10 @@ public class CharCreator implements ActionListener {
 	public static Stats stats = new Stats();
 	public static Time time = new Time();
 	public static Statuses statuses = new Statuses();
+	public static SexPerks sexPerks = new SexPerks();
 	
 	int menuNumber = 0;
-	int perkSPerkPoints = 11;
+	int sPerkPoints = 11;
 	
 	public CharCreator() {
 		GameUtil.clearScreen();
@@ -43,7 +45,6 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Hominidae Sapien", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
 		panel.add(GameUtil.createButton("Felidae Sapien", this), GameUtil.setConstraints(0.1, 0.1, 2, 0, 1, 1));
 		panel.add(GameUtil.createButton("Reptilia Sapien", this), GameUtil.setConstraints(0.1, 0.1, 2, 2, 1, 1));
-		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 3, 4, 3, 3));
 		
 		panel.add(GameUtil.setLabel("<html><div><center>--- Choose a race ---</center></div>"
 				+ "<div></div><div><center>Equidae Sapien (only horses atm)</center></div>" 
@@ -61,6 +62,7 @@ public class CharCreator implements ActionListener {
 				+ "<div></div><div><center>Reptilia Sapien (only lizards atm)</center></div>" 
 				+ "<div><center>A rac of reptile people. They range from gecko anthros to iguana-anthros. This gives them a wide variety."
 				+ "They are known to be smart and wise.</center></div>"), GameUtil.setConstraints(0.1, 0.1, 0, 3, 3, 0));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 3, 4, 3, 3));
 		
 		TitleScreen.frame.add(panel); //adds the panel to the frame
 		GameUtil.refreshScreen();
@@ -81,7 +83,6 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Option F", this), GameUtil.setConstraints(0.1, 0.1, 5, 0, 1, 1));
 		panel.add(GameUtil.createButton("Option G", this), GameUtil.setConstraints(0.1, 0.1, 6, 0, 1, 1));
 		panel.add(GameUtil.createButton("Option H", this), GameUtil.setConstraints(0.1, 0.1, 7, 0, 1, 1));
-		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 8, 2, 3, 1));
 		panel.add(GameUtil.setLabel("<html><div><center>--- Select Sexual Equipment ---</center></div>"
 				+ GameUtil.makeDiv("Option A - cock and balls")
 				+ GameUtil.makeDiv("Option B - cock")
@@ -91,6 +92,7 @@ public class CharCreator implements ActionListener {
 				+ GameUtil.makeDiv("Option F -  boobs and cock")
 				+ GameUtil.makeDiv("Option G -  boobs, cock, balls, and vagina")
 				+ GameUtil.makeDiv("Option H -  boobs, cock, and vagina")), GameUtil.setConstraints(0, 0.1, 3, 1, 2, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 8, 2, 3, 1));
 		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
@@ -105,9 +107,8 @@ public class CharCreator implements ActionListener {
 		
 		panel.add(GameUtil.createButton("Yes Internal Balls", this), GameUtil.setConstraints(0.1, 0, 0, 0, 1, 1));
 		panel.add(GameUtil.createButton("No Internal Balls", this), GameUtil.setConstraints(0.1, 0, 1, 0, 1, 1));
-		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 1, 2, 3, 1));
-		
 		panel.add(GameUtil.setLabel("<html><div><center>Would you like internal balls?</center></div>"), GameUtil.setConstraints(0.1, 0, 0, 1, 2, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 1, 2, 3, 1));
 		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
@@ -122,9 +123,8 @@ public class CharCreator implements ActionListener {
 		
 		panel.add(GameUtil.createButton("Yes Udder", this), GameUtil.setConstraints(0.1, 0, 0, 0, 1, 1));
 		panel.add(GameUtil.createButton("No Udder", this), GameUtil.setConstraints(0.1, 0, 1, 0, 1, 1));
-		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 1, 2, 3, 1));
-		
 		panel.add(GameUtil.setLabel("<html><div><center>Would you like an udder?</center></div>"), GameUtil.setConstraints(0.1, 0, 0, 1, 2, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 1, 2, 3, 1));
 		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
@@ -139,12 +139,11 @@ public class CharCreator implements ActionListener {
 		JPanel panel = new JPanel(new GridBagLayout());
 		
 		panel.add(GameUtil.createButton("Cow", this), GameUtil.setConstraints(0.1, 0, 0, 0, 1, 1));
-		panel.add(GameUtil.createButton("Horse", this), GameUtil.setConstraints(0.1, 0, 1, 0, 1, 1));
-		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 1, 2, 3, 1));
-		
+		panel.add(GameUtil.createButton("Horse", this), GameUtil.setConstraints(0.1, 0, 1, 0, 1, 1));		
 		panel.add(GameUtil.setLabel("<html><div><center>What type?</center></div>"
 					+ "<div><center>Cow - pink udder with 4 teats</center></div>"
 					+ "<div><center>Horse - black udder with 2 teats</center></div>"), GameUtil.setConstraints(0.1, 0, 0, 1, 2, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 1, 2, 3, 1));
 		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
@@ -157,18 +156,17 @@ public class CharCreator implements ActionListener {
 		
 		menuNumber = 6;
 		
-		panel.add(GameUtil.createButton("Macro", this), GameUtil.setConstraints(0.1, 0.1, 0, 0, 1, 1));
-		panel.add(GameUtil.createButton("Hyper", this), GameUtil.setConstraints(0.1, 0.1, 1, 0, 1, 1));
-		panel.add(GameUtil.createButton("Large", this), GameUtil.setConstraints(0.1, 0.1, 2, 0, 1, 1));
-		panel.add(GameUtil.createButton("Small", this), GameUtil.setConstraints(0.1, 0.1, 3, 0, 1, 1));
-		panel.add(GameUtil.createButton("Vore", this), GameUtil.setConstraints(0.1, 0.1, 4, 0, 1, 1));
-		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 5, 1, 3, 1));
+		panel.add(GameUtil.setLabel("Current amount of sex perk points: " + sPerkPoints), GameUtil.setConstraints(0.1, 0.1, 1, 0, 2, 1));
+		panel.add(GameUtil.createButton("Macro", this), GameUtil.setConstraints(0.1, 0.1, 0, 1, 1, 1));
+		panel.add(GameUtil.createButton("Hyper", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
+		panel.add(GameUtil.createButton("Large", this), GameUtil.setConstraints(0.1, 0.1, 2, 1, 1, 1));
+		panel.add(GameUtil.createButton("Vore", this), GameUtil.setConstraints(0.1, 0.1, 3, 1, 1, 1));
 		panel.add(GameUtil.setLabel("<html><div><center>--- Select Sex Perks ---</center></div>"
 				+ GameUtil.makeDiv("Macro - perks for making the character macro-sized")
 				+ GameUtil.makeDiv("Hyper - perks for making the character hyper-sized")
 				+ GameUtil.makeDiv("Large - perks for making the character large-sized")
-				+ GameUtil.makeDiv("Small -  perks for making the character small-sized")
-				+ GameUtil.makeDiv("Vore - perks relating to vore")), GameUtil.setConstraints(0, 0.1, 1, 1, 3, 1));
+				+ GameUtil.makeDiv("Vore - perks relating to vore")), GameUtil.setConstraints(0, 0.1, 1, 2, 2, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 5, 3, 3, 1));
 		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
@@ -181,7 +179,7 @@ public class CharCreator implements ActionListener {
 		
 		menuNumber = 7;
 		
-		panel.add(GameUtil.setLabel("Current amount of sex perk points: " + perkSPerkPoints), GameUtil.setConstraints(0.1, 0.1, 2, 0, 2, 1));
+		panel.add(GameUtil.setLabel("Current amount of sex perk points: " + sPerkPoints), GameUtil.setConstraints(0.1, 0.1, 2, 0, 2, 1));
 		panel.add(GameUtil.createButton("Macro Fertility", this), GameUtil.setConstraints(0.1, 0.1, 0, 1, 1, 1));
 		panel.add(GameUtil.createButton("Macro Virility", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
 		panel.add(GameUtil.createButton("Macro Size", this), GameUtil.setConstraints(0.1, 0.1, 2, 1, 1, 1));
@@ -193,7 +191,6 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Macro Butt", this), GameUtil.setConstraints(0.1, 0.1, 3, 2, 1, 1));
 		panel.add(GameUtil.createButton("Macro Thighs", this), GameUtil.setConstraints(0.1, 0.1, 4, 2, 1, 1));
 		panel.add(GameUtil.createButton("Macro Hips", this), GameUtil.setConstraints(0.1, 0.1, 5, 2, 1, 1));
-		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 7, 5, 3, 1));
 		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Macro Perks ---</center></div>"
 						+ GameUtil.makeDiv("Macro Fertility - Whenever PC is pregnant, their pregnancy belly will range from the size of a city to cosmic."
 						+ " This means they will have thousands to trillions, or even more children at once."
@@ -211,6 +208,7 @@ public class CharCreator implements ActionListener {
 						+ GameUtil.makeDiv("Macro Butt - PC will have a butt so large, it can eclipse moons or celestial bodies much larger.")
 						+ GameUtil.makeDiv("Macro Thighs - PC will have thighs so thick, they eclipse celestial bodies.")
 						+ GameUtil.makeDiv("Macro Hips - PC will have hips so wide, they span an entire planet or more."))), GameUtil.setConstraints(0, 0.1, 1, 4, 4, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 7, 5, 3, 1));
 		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
@@ -223,7 +221,7 @@ public class CharCreator implements ActionListener {
 		
 		menuNumber = 7;
 		
-		panel.add(GameUtil.setLabel("Current amount of sex perk points: " + perkSPerkPoints), GameUtil.setConstraints(0.1, 0.1, 2, 0, 2, 1));
+		panel.add(GameUtil.setLabel("Current amount of sex perk points: " + sPerkPoints), GameUtil.setConstraints(0.1, 0.1, 2, 0, 2, 1));
 		panel.add(GameUtil.createButton("Hyper Fertility", this), GameUtil.setConstraints(0.1, 0.1, 0, 1, 1, 1));
 		panel.add(GameUtil.createButton("Hyper Virility", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
 		panel.add(GameUtil.createButton("Hyper Size", this), GameUtil.setConstraints(0.1, 0.1, 2, 1, 1, 1));
@@ -235,12 +233,11 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Hyper Butt", this), GameUtil.setConstraints(0.1, 0.1, 3, 2, 1, 1));
 		panel.add(GameUtil.createButton("Hyper Thighs", this), GameUtil.setConstraints(0.1, 0.1, 4, 2, 1, 1));
 		panel.add(GameUtil.createButton("Hyper Hips", this), GameUtil.setConstraints(0.1, 0.1, 5, 2, 1, 1));
-		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 7, 5, 3, 1));
 		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Hyper Perks ---</center></div>"
 						+ GameUtil.makeDiv("Hyper Fertility - Whenever PC is pregnant, their pregnancy belly will range from the size of a large pool to a city."
 						+ " Their lactatcion will also be so extreme that olympic-sized pools could be filled quickly.")
 						+ GameUtil.makeDiv("Hyper Virility - If PC has balls, their semen will have a drastic effects on impregnating women."
-						+ " These effects range from making impregnanted women have hundreds to hundred thousand children at once."
+						+ " These effects range from making impregnanted women have thousands to hundred thousand children at once."
 						+ " It will also make the PC's cum production at such ridiclous levels they could flood olympic-sized pools with their semen")
 						+ GameUtil.makeDiv("Hyper Size - Will make the PC ginormous. Their height will range from giraffe-sized to Eiffel-tower-sized."
 						+ " They also get the special ability to assume a specific height, disguising their true height, but not their mass.")
@@ -252,26 +249,109 @@ public class CharCreator implements ActionListener {
 						+ GameUtil.makeDiv("Hyper Butt - PC will have a butt so large, it can fill public pools to sub sky-scraper.")
 						+ GameUtil.makeDiv("Hyper Thighs - PC will have thighs so thick, they fill pools to sub sky-scraper.")
 						+ GameUtil.makeDiv("Hyper Hips - PC will have hips so wide, they span large fields but are smaller than a sky-scraper."))), GameUtil.setConstraints(0, 0.1, 1, 4, 4, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 7, 5, 3, 1));
 		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
 	}
 	
 	public void largeSPerk() {
+		GameUtil.clearScreen();
 		
-	}
-	
-	public void smallSPerk() {
+		JPanel panel = new JPanel(new GridBagLayout());
 		
+		menuNumber = 7;
+		
+		panel.add(GameUtil.setLabel("Current amount of sex perk points: " + sPerkPoints), GameUtil.setConstraints(0.1, 0.1, 2, 0, 2, 1));
+		panel.add(GameUtil.createButton("Large Fertility", this), GameUtil.setConstraints(0.1, 0.1, 0, 1, 1, 1));
+		panel.add(GameUtil.createButton("Large Virility", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
+		panel.add(GameUtil.createButton("Large Size", this), GameUtil.setConstraints(0.1, 0.1, 2, 1, 1, 1));
+		panel.add(GameUtil.createButton("Large Cock", this), GameUtil.setConstraints(0.1, 0.1, 3, 1, 1, 1));
+		panel.add(GameUtil.createButton("Large Balls", this), GameUtil.setConstraints(0.1, 0.1, 4, 1, 1, 1));
+		panel.add(GameUtil.createButton("Large Boobs", this), GameUtil.setConstraints(0.1, 0.1, 0, 2, 1, 1));
+		panel.add(GameUtil.createButton("Large Vagina", this), GameUtil.setConstraints(0.1, 0.1, 1, 2, 1, 1));
+		panel.add(GameUtil.createButton("Large Udder", this), GameUtil.setConstraints(0.1, 0.1, 2, 2, 1, 1));
+		panel.add(GameUtil.createButton("Large Butt", this), GameUtil.setConstraints(0.1, 0.1, 3, 2, 1, 1));
+		panel.add(GameUtil.createButton("Large Thighs", this), GameUtil.setConstraints(0.1, 0.1, 4, 2, 1, 1));
+		panel.add(GameUtil.createButton("Large Hips", this), GameUtil.setConstraints(0.1, 0.1, 5, 2, 1, 1));
+		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Large Perks ---</center></div>"
+						+ GameUtil.makeDiv("Large Fertility - Whenever PC is pregnant, their pregnancy belly will range from the size of a bed to the size of a pool."
+						+ " Their lactatcion will also be so extreme that whole bathtubs will be overflowing with milk.")
+						+ GameUtil.makeDiv("Large Virility - If PC has balls, their semen will have a drastic effects on impregnating women."
+						+ " These effects range from making impregnanted women have up to a thousand children at once."
+						+ " It will also make the PC's cum production at such ridiclous levels they could flood bathtubs with their semen")
+						+ GameUtil.makeDiv("Large Size - Will make the PC large. Their height will range from just above average to giraffe-sized.")
+						+ GameUtil.makeDiv("Large Cock -  PC will have a cock double to quadruple their height.")
+						+ GameUtil.makeDiv("Large Balls - PC will have balls so large, they can range from beach-ball-sized to bathtub-sized.")
+						+ GameUtil.makeDiv("Large Boobs - PC will have boobs so large they range from large to bathtub-sized.")
+						+ GameUtil.makeDiv("Large Vagina - PC will have a vagina large enough a bathtub could fit inside.")
+						+ GameUtil.makeDiv("Large Udder - PC will have a massive udder ranging from bathtub-sized to under pool-sized.")
+						+ GameUtil.makeDiv("Large Butt - PC will have a butt large enough to take up a whole bathtub.")
+						+ GameUtil.makeDiv("Large Thighs - PC will have thighs large enough to take up a whole bathtub")
+						+ GameUtil.makeDiv("Large Hips - PC will have hips wide enough to take up a whole bathtub"))), GameUtil.setConstraints(0, 0.1, 1, 4, 4, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 7, 5, 3, 1));
+		
+		TitleScreen.frame.add(panel);
+		GameUtil.refreshScreen();
 	}
 	
 	public void voreSPerk() {
+		GameUtil.clearScreen();
+		
+		JPanel panel = new JPanel(new GridBagLayout());
+		
+		menuNumber = 7;
+		
+		panel.add(GameUtil.setLabel("Current amount of sex perk points: " + sPerkPoints), GameUtil.setConstraints(0.1, 0.1, 1, 0, 2, 1));
+		panel.add(GameUtil.createButton("Vore Level", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
+		panel.add(GameUtil.createButton("Fatal Vore Efficency", this), GameUtil.setConstraints(0.1, 0.1, 2, 1, 1, 1));
+		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Vore Perks ---</center></div>"
+						+ GameUtil.makeDiv("Vore Level - the higher level the stronger people PC can vore. Also the more people PC can fit inside themselves after Voring."
+								+ " It's important to note, when voring the PC has the option of making it fatal."
+								+ "It costs 5 sex perk points.")
+						+ GameUtil.makeDiv("Fatal Vore Efficency - If PC chooses to make their voring fatal this determines how much mass and size is gained by the PC."
+								+ "It costs 6 sex perk points.")
+						)), GameUtil.setConstraints(0, 0.1, 1, 2, 4, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 0, 3, 3, 1));
+		
+		TitleScreen.frame.add(panel);
+		GameUtil.refreshScreen();
+	}
+	
+	public void classMenu() {
+		GameUtil.clearScreen();
+		
+		JPanel panel = new JPanel(new GridBagLayout());
+		
+		menuNumber = 7;
+		
+		panel.add(GameUtil.createButton("Fighter", this), GameUtil.setConstraints(0.1, 0.1, 0, 0, 1, 1));
+		panel.add(GameUtil.createButton("Ranger", this), GameUtil.setConstraints(0.1, 0.1, 1, 0, 1, 1));
+		panel.add(GameUtil.createButton("Sorcerer", this), GameUtil.setConstraints(0.1, 0.1, 2, 0, 1, 1));
+		panel.add(GameUtil.createButton("Rogue", this), GameUtil.setConstraints(0.1, 0.1, 0, 1, 1, 1));
+		panel.add(GameUtil.createButton("Monk", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
+		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Class ---</center></div>"
+				+ GameUtil.makeDiv("Fighter - PC specializes in fighting with melee weapons. These range from swords, to greatswords, warhammers, and so on. "
+						+ "They can be one-handed or two-handed.")
+				+ GameUtil.makeDiv("Ranger - PC specializes in fighting with ranged weapons. Thesr range from bows to crossbows and so on. "
+						+ "They can be two-handed greatbows to two-handed greatcrossbows.")
+				+ GameUtil.makeDiv("Sorcerer - PC specilaizes in fighting with magic. They can throw fireballs, move rock, and so on.")
+				+ GameUtil.makeDiv("Rogue - PC specializes with fighting with finesse weapons. These range from daggers to rapiers.")
+				+ GameUtil.makeDiv("Monk - PC specializes fighting unarmed to any martial weapon. "
+						+ "Such as Jiang swords, Dao broadswords, Bo-staffs, and so on."))), GameUtil.setConstraints(0, 0.1, 0, 2, 3, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 3, 3, 3, 1));
+		
+		TitleScreen.frame.add(panel);
+		GameUtil.refreshScreen();
+	}
+	
+	public void roleMenu() {
 		
 	}
 	
 	public void giveBoobs() {
 		appear.setBoobTotal(2);
-		appear.setBoobSize(1);
+		appear.setBoobSize((int) (Math.random() * (4 - 1 + 1) + 1));
 		appear.setNippleTotal(2);
 		appear.setNippleLength(4);
 		appear.setNippleThickness(3);
@@ -314,6 +394,14 @@ public class CharCreator implements ActionListener {
 	public void goBack() {
 		menuNumber -= 1;
 		GameUtil.clearScreen();
+	}
+	
+	public void checkSexPerkAmount() {
+		if(sPerkPoints == 0) {
+			classMenu();
+		} else if (sPerkPoints < 0) {
+			System.out.println("There is a problem with the sex perk amount.");
+		}
 	}
 	
 	@Override
@@ -531,12 +619,182 @@ public class CharCreator implements ActionListener {
 				goBack();
 				sexPerks();
 			}
+			
 		} 
+		
 		else if (e.getActionCommand().equals("Macro")) { macroSPerk(); } 
 		else if (e.getActionCommand().equals("Hyper")) { hyperSPerk(); } 
 		else if (e.getActionCommand().equals("Large")) { largeSPerk(); } 
-		else if (e.getActionCommand().equals("Small")) { smallSPerk(); }
 		else if (e.getActionCommand().equals("Vore")) { voreSPerk(); }
+		else if (e.getActionCommand().equals("Macro Fertility") || e.getActionCommand().equals("Macro Virility")|| e.getActionCommand().equals("Macro Size") 
+				|| e.getActionCommand().equals("Macro Cock") || e.getActionCommand().equals("Macro Balls") || e.getActionCommand().equals("Macro Boobs")
+				|| e.getActionCommand().equals("Macro Vagina") || e.getActionCommand().equals("Macro Udder") || e.getActionCommand().equals("Macro Butt")
+				|| e.getActionCommand().equals("Macro Thighs") || e.getActionCommand().equals("Macro Hips")) {
+			
+			if(e.getActionCommand().equals("Macro Fertility") && sexPerks.getMacroFertilityLevel() == 0) {
+				sPerkPoints -= 1;
+				sexPerks.setMacroFertilityLevel(1);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Macro Virility") && sexPerks.getMacroVirilityLevel() == 0) {
+				sPerkPoints -= 1;
+				sexPerks.setMacroVirilityLevel(1);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Macro Size") && sexPerks.getMacroSizeLevel() == 0) {
+				sPerkPoints -= 1;
+				sexPerks.setMacroSizeLevel(1);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Macro Cock") && sexPerks.getMacroCock() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setMacroCock(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Macro Balls") && sexPerks.getMacroBalls() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setMacroBalls(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Macro Boobs") && sexPerks.getMacroBoobs() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setMacroBoobs(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Macro Vagina") && sexPerks.getMacroVagina() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setMacroVagina(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Macro Udder") && sexPerks.getMacroUdder() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setMacroUdder(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Macro Butt") && sexPerks.getMacroButt() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setMacroButt(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Macro Thighs") && sexPerks.getMacroThighs() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setMacroThighs(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Macro Hips") && sexPerks.getMacroHips() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setMacroHips(true);
+				checkSexPerkAmount();
+			}
+			
+		}
+		
+		else if (e.getActionCommand().equals("Hyper Fertility") || e.getActionCommand().equals("Hyper Virility")|| e.getActionCommand().equals("Hyper Size") 
+				|| e.getActionCommand().equals("Hyper Cock") || e.getActionCommand().equals("Hyper Balls") || e.getActionCommand().equals("Hyper Boobs")
+				|| e.getActionCommand().equals("Hyper Vagina") || e.getActionCommand().equals("Hyper Udder") || e.getActionCommand().equals("Hyper Butt")
+				|| e.getActionCommand().equals("Hyper Thighs") || e.getActionCommand().equals("Hyper Hips")) {
+			
+			if(e.getActionCommand().equals("Hyper Fertility") && sexPerks.getHyperFertilityLevel() == 0) {
+				sPerkPoints -= 1;
+				sexPerks.setHyperFertilityLevel(1);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Hyper Virility") && sexPerks.getHyperVirilityLevel() == 0) {
+				sPerkPoints -= 1;
+				sexPerks.setHyperVirilityLevel(1);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Hyper Size") && sexPerks.getHyperSizeLevel() == 0) {
+				sPerkPoints -= 1;
+				sexPerks.setHyperSizeLevel(1);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Hyper Cock") && sexPerks.getHyperCock() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setHyperCock(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Hyper Balls") && sexPerks.getHyperBalls() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setHyperBalls(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Hyper Boobs") && sexPerks.getHyperBoobs() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setHyperBoobs(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Hyper Vagina") && sexPerks.getHyperVagina() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setHyperVagina(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Hyper Udder") && sexPerks.getHyperUdder() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setHyperUdder(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Hyper Butt") && sexPerks.getHyperButt() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setHyperButt(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Hyper Thighs") && sexPerks.getHyperThighs() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setHyperThighs(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Hyper Hips") && sexPerks.getHyperHips() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setHyperHips(true);
+				checkSexPerkAmount();
+			}
+			
+		}
+		
+		else if (e.getActionCommand().equals("Large Fertility") || e.getActionCommand().equals("Large Virility")|| e.getActionCommand().equals("Large Size") 
+				|| e.getActionCommand().equals("Large Cock") || e.getActionCommand().equals("Large Balls") || e.getActionCommand().equals("Large Boobs")
+				|| e.getActionCommand().equals("Large Vagina") || e.getActionCommand().equals("Large Udder") || e.getActionCommand().equals("Large Butt")
+				|| e.getActionCommand().equals("Large Thighs") || e.getActionCommand().equals("Large Hips")) {
+			
+			if(e.getActionCommand().equals("Large Fertility") && sexPerks.getLargeFertilityLevel() == 0) {
+				sPerkPoints -= 1;
+				sexPerks.setLargeFertilityLevel(1);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Large Virility") && sexPerks.getLargeVirilityLevel() == 0) {
+				sPerkPoints -= 1;
+				sexPerks.setLargeVirilityLevel(1);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Large Size") && sexPerks.getLargeSizeLevel() == 0) {
+				sPerkPoints -= 1;
+				sexPerks.setLargeSizeLevel(1);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Large Cock") && sexPerks.getLargeCock() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setLargeCock(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Large Balls") && sexPerks.getLargeBalls() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setLargeBalls(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Large Boobs") && sexPerks.getLargeBoobs() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setLargeBoobs(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Large Vagina") && sexPerks.getLargeVagina() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setLargeVagina(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Large Udder") && sexPerks.getLargeUdder() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setLargeUdder(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Large Butt") && sexPerks.getLargeButt() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setLargeButt(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Large Thighs") && sexPerks.getLargeThighs() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setLargeThighs(true);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Large Hips") && sexPerks.getLargeHips() == false) {
+				sPerkPoints -= 1;
+				sexPerks.setLargeHips(true);
+				checkSexPerkAmount();
+			}
+		}
+		
+		else if(e.getActionCommand().equals("Vore Level") || e.getActionCommand().equals("Fatal Vore Efficency")) {
+			if(e.getActionCommand().equals("Vore Level") && sexPerks.getVoreLevel() == 0) {
+				sPerkPoints -= 5;
+				sexPerks.setVoreLevel(1);
+				checkSexPerkAmount();
+			} else if (e.getActionCommand().equals("Fatal Vore Efficency") && sexPerks.getFatalVoreEfficiencyLevel() == 0) {
+				sPerkPoints -= 6;
+				sexPerks.setFatalVoreEfficiencyLevel(1);
+				checkSexPerkAmount();
+			}
+		}
 	}
 
 }
