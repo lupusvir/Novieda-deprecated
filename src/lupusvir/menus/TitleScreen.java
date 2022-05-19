@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import lupusvir.GameUtil;
-import lupusvir.Main;
+import lupusvir.main.Main;
 
 public class TitleScreen implements ActionListener {
 	
