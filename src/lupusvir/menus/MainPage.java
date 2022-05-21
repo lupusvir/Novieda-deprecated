@@ -7,14 +7,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import lupusvir.GameUtil;
+import lupusvir.Quest;
 
 public class MainPage implements ActionListener {
 
 	int textNum = 0;
+	Quest quest = new Quest();
 	
 	public MainPage () {
 		GameUtil.clearScreen();
-		CharCreator.appear.setName("Subject Delta");
 		introPrompt();
 	}
 	
@@ -40,7 +41,7 @@ public class MainPage implements ActionListener {
 			panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody(GameUtil.makeItalic("The better question to be asked is, "
 					+ "What will you do in the face of change? Will you fight it, or embrace it?"
 					+ GameUtil.makeItalic("Fate depends on it you know.")
-					+ GameUtil.makeItalic("After all, life's always been about choices. Choices, made in shades of grey."))), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
+					+ GameUtil.makeItalic("After all, life's always been about choices. Choices made in shades of grey."))), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
 			textNum++;
 		} else if (textNum == 3) {
@@ -58,26 +59,124 @@ public class MainPage implements ActionListener {
 					+ "For now, you wake up, on an island called Novieda."), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
 			textNum++;
+			
 		} else if (textNum == 5 && CharCreator.discoveries.getFoundPlainsKingdom() == true) {
 			GameUtil.clearScreen();
 			panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody("You find yourself in the plains kingdom also known as "
 					+ "Ventosa Campestribus. Also known as the home of the Equidae Sapien peoples."
 					+ "They're a hardy people with large genitals and a strict code of honor."
-					+ "There's a number of things nearby, rangin from the barracks, to the town center, market, square and much more."
+					+ "Nearby are the barracks, town center, market, square and much more."
 					+ "But you find yourself still questioning your dream. Perhaps a visit to the local mage?"), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
 			textNum++;
+			quest.giveMainQuest();
+			displayMainPage();
+			
+		} else if (textNum == 5 && CharCreator.discoveries.getFoundForestKingdom() == true) {
+			GameUtil.clearScreen();
+			panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody("You find yourself in the forest kingdom also known as "
+					+ "Lupus Silva. Also known as the home of the Canidae Sapien peoples."
+					+ "They're lean and fit with larger-than-normal genitals. They frequently consider themselves and other as one large family."
+					+ "There's a number of things nearby, ranging from the barracks, to the town center, market, square and much more."
+					+ "But you find yourself still questioning your dream. Perhaps a visit to the local mage?"), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
+			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
+			textNum++;
+			quest.giveMainQuest();
+			displayMainPage();
+			
+		}  else if (textNum == 5 && CharCreator.discoveries.getFoundJungleKingdom() == true) {
+			GameUtil.clearScreen();
+			panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody("You find yourself in the jungle kingdom also known as "
+					+ "Jungle of Cats. Home of the Felidae Sapien peoples."
+					+ "They're flexible and small. Their kingdom a matriarchy."
+					+ "There's a number of things nearby, ranging from the barracks, to the town center, market, square and much more."
+					+ "But you find yourself still questioning your dream. Perhaps a visit to the local mage?"), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
+			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
+			textNum++;
+			quest.giveMainQuest();
+			displayMainPage();
+			
+		} else if (textNum == 5 && CharCreator.discoveries.getFoundDesertKingdom() == true) {
+			GameUtil.clearScreen();
+			panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody("You find yourself in the desert kingdom also known as "
+					+ "The Dry Basin. Home of the Reptilia Sapien peoples."
+					+ "They're a diverse group of peopels. Their kingdom governed by a board."
+					+ "There's a number of things nearby, ranging from the barracks, to the town center, market, square and much more."
+					+ "But you find yourself still questioning your dream. Perhaps a visit to the local mage?"), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
+			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
+			textNum++;
+			quest.giveMainQuest();
+			displayMainPage();
 		}
 	
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
+	}
+	
+	public void displayMainPage() {
+		JPanel panel = new JPanel(new GridBagLayout());
+		
+		GameUtil.clearScreen();
+		
+		panel.add(GameUtil.setLabel("<html><center>Health: " + CharCreator.stats.getCurrentHP() + "/" + CharCreator.stats.getTotalHP() + "</center>"), GameUtil.setConstraints(0, 0, 0, 0, 1, 1));
+		panel.add(GameUtil.setLabel("<html><center>Energy: " + CharCreator.stats.getCurrentEP() + "/" + CharCreator.stats.getTotalEP() + "</center>"), GameUtil.setConstraints(0, 0, 0, 1, 1, 1));
+		panel.add(GameUtil.setLabel("<html><center>Lust: " + CharCreator.stats.getCurrentLust() + "/" + CharCreator.stats.getTotalLust() + "</center>"), GameUtil.setConstraints(0, 0, 0, 2, 1, 1));
+		panel.add(GameUtil.createButton("Character", this), GameUtil.setConstraints(0, 0, 0, 3, 1, 1));
+		
+		TitleScreen.frame.add(panel);
+		GameUtil.refreshScreen();
+		
+	}
+	
+	public void displayCharPage() {
+		JPanel panel = new JPanel(new GridBagLayout());
+		
+		GameUtil.clearScreen();
+		panel.add(GameUtil.createButton("Modifiers", this), GameUtil.setConstraints(0, 0.1, 0, 0, 1, 1));
+		panel.add(GameUtil.createButton("Status", this), GameUtil.setConstraints(0, 0.1, 1, 0, 1, 1));
+		panel.add(GameUtil.createButton("Levels", this), GameUtil.setConstraints(0, 0.1, 2, 0, 1, 1));
+		panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody("<center>Health: " + CharCreator.stats.getCurrentHP() + "/" + CharCreator.stats.getTotalHP() + "</center>"
+					+ GameUtil.makeDiv("<center>Energy: " + CharCreator.stats.getCurrentEP() + "/" + CharCreator.stats.getTotalEP() + "</center>") 
+					+ GameUtil.makeDiv("<center>Lust: " + CharCreator.stats.getCurrentLust() + "/" + CharCreator.stats.getTotalLust() + "</center>")
+					+ GameUtil.makeDiv(GameUtil.makeDiv("<center>--- Current Kingdom ---</center>") 
+							+ GameUtil.makeDiv("<center>" + displayCurrentKingdom() + "</center>"))
+					+ GameUtil.makeDiv(GameUtil.makeDiv("<center>Strength: " + CharCreator.stats.getStr() + "</center>" 
+							+ "<center>Dexterity: " + CharCreator.stats.getDex() + "</center>" 
+							+ "<center>Constitution: " + CharCreator.stats.getCon() + "</center>" 
+							+ "<center>Intelligence: " + CharCreator.stats.getIntel() + "</center>" 
+							+ "<center>Wisdom: " + CharCreator.stats.getWis() + "</center>" 
+							+ "<center>Charisma: " + CharCreator.stats.getCha() + "</center>")
+					+ GameUtil.makeDiv("<center>Mentality: " + CharCreator.stats.getMent() + "</center>" 
+							+ "<center>Libido: " + CharCreator.stats.getLib() + "</center>" 
+							+ "<center>Sensitivity: " + CharCreator.stats.getSen() + "</center>"))), 500, 500), GameUtil.setConstraints(0, 0.1, 1, 1, 1, 5));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0.1, 1, 6, 1, 1));
+		
+		TitleScreen.frame.add(panel);
+		GameUtil.refreshScreen();
+	}
+	
+	public String displayCurrentKingdom() {
+		String tempStr = "Zone Error";
+		if (CharCreator.time.getCurrentZone() == 0) {
+			tempStr = "Ventosa Campestribus";
+			return tempStr;
+		} else if (CharCreator.time.getCurrentZone() == 1) {
+			tempStr = "Lupus Silva";
+			return tempStr;
+		} else if (CharCreator.time.getCurrentZone() == 2) {
+			tempStr = "Jungle of Cats";
+			return tempStr;
+		} else if (CharCreator.time.getCurrentZone() == 3) {
+			tempStr = "Dry Basin";
+			return tempStr;
+		} else { return tempStr; }
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("Next") && textNum < 5) {
 			if(textNum > 0) { introPrompt(); } 
-		}
+		} else if (e.getActionCommand().equals("Character")) { displayCharPage(); }
 		
 	}
 }

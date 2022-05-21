@@ -21,8 +21,11 @@ public class Stats {
 	private int cha = 10;
 	private int chaMod = 0;
 	
-	private int HP = 10;
-	private int EP = 10;
+	private int totalHP = 10;
+	private int currentHP = 10;
+	
+	private int totalEP = 10;
+	private int currentEP = 10;
 	
 	//Sex stats
 	private int ment = 10; //lower mentality more likely PC to think like slut, greater less likely
@@ -34,7 +37,8 @@ public class Stats {
 	private int sen = 10; //greater sensitivity PC is more vulnerable to getting horny from being touched
 	private int senMod = 0;
 	
-	private int lust = 0;
+	private int totalLust = 0;
+	private int currentLust = 0;
 	
 	private int coin = 0;
 	
@@ -182,30 +186,54 @@ public class Stats {
 		this.senMod = senMod;
 	}
 	
-	public int getHP() {
-		return HP;
+	public int getTotalHP() {
+		return totalHP;
 	}
 	
-	public void setHP(int HP) {
-		this.HP = HP;
+	public void setTotalHP(int totalHP) {
+		this.totalHP = totalHP;
 	}
 	
-	public int getEP() {
-		return EP;
+	public int getCurrentHP() {
+		return currentHP;
+	}
+
+	public void setCurrentHP(int currentHP) {
+		this.currentHP = currentHP;
+	}
+
+	public int getTotalEP() {
+		return totalEP;
 	}
 	
-	public void setEP(int EP) {
-		this.EP = EP;
+	public void setTotalEP(int totalEP) {
+		this.totalEP = totalEP;
 	}
 	
-	public int getLust() {
-		return lust;
+	public int getCurrentEP() {
+		return currentEP;
+	}
+
+	public void setCurrentEP(int currentEP) {
+		this.currentEP = currentEP;
+	}
+
+	public int getTotalLust() {
+		return totalLust;
 	}
 	
-	public void setLust(int lust) {
-		this.lust = lust;
+	public void setTotalLust(int totalLust) {
+		this.totalLust = totalLust;
 	}
 	
+	public int getCurrentLust() {
+		return currentLust;
+	}
+
+	public void setCurrentLust(int currentLust) {
+		this.currentLust = currentLust;
+	}
+
 	public int getCoin() {
 		return coin;
 	}

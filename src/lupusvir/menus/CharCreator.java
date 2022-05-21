@@ -471,6 +471,8 @@ public class CharCreator implements ActionListener {
 			stats.setSen(12);
 			stats.setMent(6);
 			
+			stats.setTotalLust(100);
+			
 			appear.setHeight((int) Math.floor(randHeight));
 			
 			sexSelect();
@@ -498,6 +500,8 @@ public class CharCreator implements ActionListener {
 			stats.setSen(12);
 			stats.setLib(6);
 			
+			stats.setTotalLust(100);
+			
 			appear.setHeight((int) Math.floor(randHeight));
 			
 			sexSelect();
@@ -520,6 +524,8 @@ public class CharCreator implements ActionListener {
 			else if (time.getCurrentZone() == 2) { discoveries.setFoundJungleKingdom(true); }
 			else if (time.getCurrentZone() == 3) { discoveries.setFoundDesertKingdom(true); }
 			else { System.out.println("Error setting discovered towns."); }
+			
+			stats.setTotalLust(100);
 			
 			appear.setHeight((int) Math.floor(randHeight));
 			
@@ -546,6 +552,8 @@ public class CharCreator implements ActionListener {
 			stats.setMent(8);
 			stats.setSen(12);
 			
+			stats.setTotalLust(100);
+			
 			appear.setHeight((int) Math.floor(randHeight));
 			
 			sexSelect();
@@ -570,6 +578,8 @@ public class CharCreator implements ActionListener {
 			
 			stats.setMent(12);
 			stats.setLib(8);
+			
+			stats.setTotalLust(100);
 			
 			appear.setHeight((int) Math.floor(randHeight));
 			
@@ -864,13 +874,13 @@ public class CharCreator implements ActionListener {
 				charNameMenu();
 			} else if (e.getActionCommand().equals("Damage")) {
 				combatPerks.setDamageRole(true);
-				new MainPage();
+				charNameMenu();
 			} else if (e.getActionCommand().equals("Utility")) {
 				combatPerks.setUtilityRole(true);
-				new MainPage();
+				charNameMenu();
 			} else if (e.getActionCommand().equals("Healer")) {
 				combatPerks.setHealerRole(true);
-				new MainPage();
+				charNameMenu();
 			}
 		}
 		else if (e.getActionCommand().equals("Next")) {
