@@ -11,8 +11,10 @@ import lupusvir.Quest;
 
 public class MainPage implements ActionListener {
 
-	int textNum = 0;
 	Quest quest = new Quest();
+	
+	int menuLevel = 0;
+	int textNum = 0;
 	
 	public MainPage () {
 		GameUtil.clearScreen();
@@ -70,7 +72,7 @@ public class MainPage implements ActionListener {
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
 			textNum++;
 			quest.giveMainQuest();
-			displayMainPage();
+			leftBar();
 			
 		} else if (textNum == 5 && CharCreator.discoveries.getFoundForestKingdom() == true) {
 			GameUtil.clearScreen();
@@ -82,7 +84,7 @@ public class MainPage implements ActionListener {
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
 			textNum++;
 			quest.giveMainQuest();
-			displayMainPage();
+			leftBar();
 			
 		}  else if (textNum == 5 && CharCreator.discoveries.getFoundJungleKingdom() == true) {
 			GameUtil.clearScreen();
@@ -94,7 +96,7 @@ public class MainPage implements ActionListener {
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
 			textNum++;
 			quest.giveMainQuest();
-			displayMainPage();
+			leftBar();
 			
 		} else if (textNum == 5 && CharCreator.discoveries.getFoundDesertKingdom() == true) {
 			GameUtil.clearScreen();
@@ -106,14 +108,14 @@ public class MainPage implements ActionListener {
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
 			textNum++;
 			quest.giveMainQuest();
-			displayMainPage();
+			leftBar();
 		}
 	
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
 	}
 	
-	public void displayMainPage() {
+	public void leftBar() {
 		JPanel panel = new JPanel(new GridBagLayout());
 		
 		GameUtil.clearScreen();
@@ -122,14 +124,52 @@ public class MainPage implements ActionListener {
 		panel.add(GameUtil.setLabel("<html><center>Energy: " + CharCreator.stats.getCurrentEP() + "/" + CharCreator.stats.getTotalEP() + "</center>"), GameUtil.setConstraints(0, 0, 0, 1, 1, 1));
 		panel.add(GameUtil.setLabel("<html><center>Lust: " + CharCreator.stats.getCurrentLust() + "/" + CharCreator.stats.getTotalLust() + "</center>"), GameUtil.setConstraints(0, 0, 0, 2, 1, 1));
 		panel.add(GameUtil.createButton("Character", this), GameUtil.setConstraints(0, 0, 0, 3, 1, 1));
+		panel.add(GameUtil.setLabel("<html><center>--- Current Kingdom ---</center>" + "<div><center>" + displayCurrentKingdom() + "</div></center>"), GameUtil.setConstraints(0, 0, 0, 4, 1, 1));
+		
+		panel.add(GameUtil.setLabel(""), GameUtil.setConstraints(0, 1, 0, 5, 1, 1)); //vertical spacer between labels and buttons
+		
+		panel.add(GameUtil.createButton("Save", this), GameUtil.setConstraints(0, 0, 0, 6, 1, 1));
+		panel.add(GameUtil.createButton("Load", this), GameUtil.setConstraints(0, 0, 0, 7, 1, 1));
+		panel.add(GameUtil.createButton("New Game", this), GameUtil.setConstraints(0, 0, 0, 8, 1, 1));
+		
+		centerButtons(panel);
+	}
+	
+	public void centerButtons(JPanel panel) {
+		panel.add(GameUtil.setLabel(""), GameUtil.setConstraints(1, 0, 1, 6, 1, 6)); //horizontal spacer between labels and buttons
+		
+		panel.add(GameUtil.createButton("Bag", this), GameUtil.setConstraints(0, 0, 2, 3, 1, 1));
+		panel.add(GameUtil.createButton("Stash", this), GameUtil.setConstraints(0, 0, 3, 3, 1, 1));
+		panel.add(GameUtil.createButton("Shops", this), GameUtil.setConstraints(0, 0, 4, 3, 1, 1));
+		panel.add(GameUtil.createButton("Day-Care", this), GameUtil.setConstraints(0, 0, 5, 3, 1, 1));
+		panel.add(GameUtil.createButton("Masturbate", this), GameUtil.setConstraints(0, 0, 2, 4, 1, 1));
+		panel.add(GameUtil.createButton("Sleep", this), GameUtil.setConstraints(0, 0, 3, 4, 1, 1));
+		panel.add(GameUtil.createButton("Wait", this), GameUtil.setConstraints(0, 0, 4, 4, 1, 1));
+		panel.add(GameUtil.createButton("Prostitute", this), GameUtil.setConstraints(0, 0, 5, 4, 1, 1));
+		panel.add(GameUtil.createButton("Explore", this), GameUtil.setConstraints(0, 0, 6, 4, 1, 1));
+		
+		panel.add(GameUtil.setLabel(""), GameUtil.setConstraints(1, 0, 7, 6, 1, 6)); //horizontal spacer between buttons and nothing
+		largeCentralText(panel);
+	}
+	
+	public void largeCentralText(JPanel panel) {
+		panel.add(GameUtil.setLabel(""), GameUtil.setConstraints(0, 0, 2, 7, 9, 1)); //vertical spacer between buttons and large text body
+		
+		//for when PC has a genital too large and for events and anything else
+		panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody("A large piece of text will be here eventually."), 500, 500), GameUtil.setConstraints(0, 0, 1, 7, 10, 4));
 		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
+	}
+	
+	public void rightSideButtons() {
 		
 	}
 	
 	public void displayCharPage() {
 		JPanel panel = new JPanel(new GridBagLayout());
+		
+		menuLevel = 1;
 		
 		GameUtil.clearScreen();
 		panel.add(GameUtil.createButton("Modifiers", this), GameUtil.setConstraints(0, 0.1, 0, 0, 1, 1));
@@ -177,6 +217,12 @@ public class MainPage implements ActionListener {
 		if(e.getActionCommand().equals("Next") && textNum < 5) {
 			if(textNum > 0) { introPrompt(); } 
 		} else if (e.getActionCommand().equals("Character")) { displayCharPage(); }
+		else if (e.getActionCommand().equals("Back")) {
+			if (menuLevel == 2) {
+				menuLevel -= 1;
+				leftBar();
+			}
+		}
 		
 	}
 }

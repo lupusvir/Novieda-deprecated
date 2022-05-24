@@ -35,6 +35,7 @@ public class Appearance {
 
 	private int boobSize = 0;
 	private int boobTotal = 0;
+	private int boobRows = 0;
 	private int nippleTotal = 0;
 	private int nippleLength = 0;
 	private int nippleThickness = 0;
@@ -301,6 +302,14 @@ public class Appearance {
 		this.boobTotal = boobTotal;
 	}
 	
+	public int getBoobRows() {
+		return boobRows;
+	}
+
+	public void setBoobRows(int boobRows) {
+		this.boobRows = boobRows;
+	}
+
 	public int getNippleTotal() {
 		return nippleTotal;
 	}

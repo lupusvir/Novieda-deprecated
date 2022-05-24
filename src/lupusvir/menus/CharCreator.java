@@ -388,8 +388,23 @@ public class CharCreator implements ActionListener {
 		GameUtil.refreshScreen();
 	}
 	
+	public void genderMenu() {
+		GameUtil.clearScreen();
+		
+		JPanel panel = new JPanel(new GridBagLayout());
+		
+		panel.add(GameUtil.setLabel("<html><div><center>--- Enter Character Name ---</center></div>"), GameUtil.setConstraints(0, 0.1, 0, 0, 2, 1));
+		panel.add(textPane, GameUtil.setConstraints(0, 0.1, 0, 1, 2, 1));
+		panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 2, 2, 1));
+		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0.1, 0, 3, 2, 1));
+		
+		TitleScreen.frame.add(panel);
+		GameUtil.refreshScreen();
+	}
+	
 	public void giveBoobs() {
 		appear.setBoobTotal(2);
+		appear.setBoobRows(1);
 		appear.setBoobSize((int) (Math.random() * (4 - 1 + 1) + 1));
 		appear.setNippleTotal(2);
 		appear.setNippleLength(4);
@@ -435,12 +450,13 @@ public class CharCreator implements ActionListener {
 		GameUtil.clearScreen();
 	}
 	
-	public void checkSexPerkAmount() {
+	public void checkSexPerkAmount() {		
 		if(sPerkPoints == 0) {
 			classMenu();
 		} else if (sPerkPoints < 0) {
 			System.out.println("There is a problem with the sex perk amount.");
 		}
+		System.out.println("Last thing in sex perk amount method.");
 	}
 	
 	@Override
@@ -591,7 +607,7 @@ public class CharCreator implements ActionListener {
 			promptInternalBalls();
 			
 		} else if (e.getActionCommand().equals("Option B")) { //cock option
-			giveCock();
+			giveCock();				GameUtil.clearScreen();
 			promptUdder();
 			
 		} else if (e.getActionCommand().equals("Option C")) { //vagina option
@@ -684,6 +700,7 @@ public class CharCreator implements ActionListener {
 				sPerkPoints -= 1;
 				sexPerks.setMacroFertilityLevel(1);
 				checkSexPerkAmount();
+				System.out.println("Last thing in macro fertility button response.");
 			} else if (e.getActionCommand().equals("Macro Virility") && sexPerks.getMacroVirilityLevel() == 0) {
 				sPerkPoints -= 1;
 				sexPerks.setMacroVirilityLevel(1);
