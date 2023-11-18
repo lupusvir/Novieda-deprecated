@@ -131,6 +131,6 @@ public class DevMenu implements ActionListener {
 		else if (e.getActionCommand().equals("Class Menu")) { new CharCreator().classMenu(); }
 		else if (e.getActionCommand().equals("Character Name Menu")) { new CharCreator().charNameMenu(); }
 		else if (e.getActionCommand().equals("Main Page")) { new MainPage(); }
-		else if (e.getActionCommand().equals("Bypass Intro prompt")) { new MainPage().leftBar(); }
+		else if (e.getActionCommand().equals("Bypass Intro prompt")) { new MainPage().vitality(); }
 	}
 }

@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
 import lupusvir.GameUtil;
+import lupusvir.TextFormat;
 import lupusvir.character.Appearance;
 import lupusvir.character.CombatPerks;
 import lupusvir.character.Discoveries;
@@ -87,14 +88,14 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Option G", this), GameUtil.setConstraints(0.1, 0.1, 6, 0, 1, 1));
 		panel.add(GameUtil.createButton("Option H", this), GameUtil.setConstraints(0.1, 0.1, 7, 0, 1, 1));
 		panel.add(GameUtil.setLabel("<html><div><center>--- Select Sexual Equipment ---</center></div>"
-				+ GameUtil.makeDiv("Option A - cock and balls")
-				+ GameUtil.makeDiv("Option B - cock")
-				+ GameUtil.makeDiv("Option C - vagina")
-				+ GameUtil.makeDiv("Option D -  boobs and vagina")
-				+ GameUtil.makeDiv("Option E -  boobs, cock, and balls")
-				+ GameUtil.makeDiv("Option F -  boobs and cock")
-				+ GameUtil.makeDiv("Option G -  boobs, cock, balls, and vagina")
-				+ GameUtil.makeDiv("Option H -  boobs, cock, and vagina")), GameUtil.setConstraints(0, 0.1, 3, 1, 2, 1));
+				+ TextFormat.makeDiv("Option A - cock and balls")
+				+ TextFormat.makeDiv("Option B - cock")
+				+ TextFormat.makeDiv("Option C - vagina")
+				+ TextFormat.makeDiv("Option D -  boobs and vagina")
+				+ TextFormat.makeDiv("Option E -  boobs, cock, and balls")
+				+ TextFormat.makeDiv("Option F -  boobs and cock")
+				+ TextFormat.makeDiv("Option G -  boobs, cock, balls, and vagina")
+				+ TextFormat.makeDiv("Option H -  boobs, cock, and vagina")), GameUtil.setConstraints(0, 0.1, 3, 1, 2, 1));
 		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 8, 2, 3, 1));
 		
 		TitleScreen.frame.add(panel);
@@ -165,10 +166,10 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Large", this), GameUtil.setConstraints(0.1, 0.1, 2, 1, 1, 1));
 		panel.add(GameUtil.createButton("Vore", this), GameUtil.setConstraints(0.1, 0.1, 3, 1, 1, 1));
 		panel.add(GameUtil.setLabel("<html><div><center>--- Select Sex Perks ---</center></div>"
-				+ GameUtil.makeDiv("Macro - perks for making the character macro-sized")
-				+ GameUtil.makeDiv("Hyper - perks for making the character hyper-sized")
-				+ GameUtil.makeDiv("Large - perks for making the character large-sized")
-				+ GameUtil.makeDiv("Vore - perks relating to vore")), GameUtil.setConstraints(0, 0.1, 1, 2, 2, 1));
+				+ TextFormat.makeDiv("Macro - perks for making the character macro-sized")
+				+ TextFormat.makeDiv("Hyper - perks for making the character hyper-sized")
+				+ TextFormat.makeDiv("Large - perks for making the character large-sized")
+				+ TextFormat.makeDiv("Vore - perks relating to vore")), GameUtil.setConstraints(0, 0.1, 1, 2, 2, 1));
 		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 5, 3, 3, 1));
 		
 		TitleScreen.frame.add(panel);
@@ -195,22 +196,22 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Macro Thighs", this), GameUtil.setConstraints(0.1, 0.1, 4, 2, 1, 1));
 		panel.add(GameUtil.createButton("Macro Hips", this), GameUtil.setConstraints(0.1, 0.1, 5, 2, 1, 1));
 		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Macro Perks ---</center></div>"
-						+ GameUtil.makeDiv("Macro Fertility - Whenever PC is pregnant, their pregnancy belly will range from the size of a city to cosmic."
+						+ TextFormat.makeDiv("Macro Fertility - Whenever PC is pregnant, their pregnancy belly will range from the size of a city to cosmic."
 						+ " This means they will have thousands to trillions, or even more children at once."
 						+ " Their lactatcion will also be so extreme that worlds and other cosmic bodies could be flooded.")
-						+ GameUtil.makeDiv("Macro Virility - If PC has balls, their semen will have a drastic effects on impregnating women."
+						+ TextFormat.makeDiv("Macro Virility - If PC has balls, their semen will have a drastic effects on impregnating women."
 						+ " These effects range from making any women impregnanted with the PC semen will have thousands or more children at once."
 						+ " It will also make the PC's cum production at such ridiclous levels they could flood planets and other cosmic bodies with their semen")
-						+ GameUtil.makeDiv("Macro Size - Will make the PC ginormous. Their height will range from sky-scraper-sized to drastically larger."
+						+ TextFormat.makeDiv("Macro Size - Will make the PC ginormous. Their height will range from sky-scraper-sized to drastically larger."
 						+ " They also get the special ability to assume a specific height, disguising their true height, but not their mass.")
-						+ GameUtil.makeDiv("Macro Cock -  PC will have a cock so drastically large it can be the size of sky-scrapers or much larger.")
-						+ GameUtil.makeDiv("Macro Balls - PC will have balls so large, they can range from the size of seas to oceans, to much, much larger.")
-						+ GameUtil.makeDiv("Macro Boobs - PC will have boobs so large they range from ocean-sized to cosmic-sized.")
-						+ GameUtil.makeDiv("Macro Vagina - PC will have a vagina so large, and so deep, a skyscraper or some cosmic body could fit inside.")
-						+ GameUtil.makeDiv("Macro Udder - PC will have a massive udder ranging from ocean-sized to comsmic-sized.")
-						+ GameUtil.makeDiv("Macro Butt - PC will have a butt so large, it can eclipse moons or celestial bodies much larger.")
-						+ GameUtil.makeDiv("Macro Thighs - PC will have thighs so thick, they eclipse celestial bodies.")
-						+ GameUtil.makeDiv("Macro Hips - PC will have hips so wide, they span an entire planet or more."))), GameUtil.setConstraints(0, 0.1, 1, 4, 4, 1));
+						+ TextFormat.makeDiv("Macro Cock -  PC will have a cock so drastically large it can be the size of sky-scrapers or much larger.")
+						+ TextFormat.makeDiv("Macro Balls - PC will have balls so large, they can range from the size of seas to oceans, to much, much larger.")
+						+ TextFormat.makeDiv("Macro Boobs - PC will have boobs so large they range from ocean-sized to cosmic-sized.")
+						+ TextFormat.makeDiv("Macro Vagina - PC will have a vagina so large, and so deep, a skyscraper or some cosmic body could fit inside.")
+						+ TextFormat.makeDiv("Macro Udder - PC will have a massive udder ranging from ocean-sized to comsmic-sized.")
+						+ TextFormat.makeDiv("Macro Butt - PC will have a butt so large, it can eclipse moons or celestial bodies much larger.")
+						+ TextFormat.makeDiv("Macro Thighs - PC will have thighs so thick, they eclipse celestial bodies.")
+						+ TextFormat.makeDiv("Macro Hips - PC will have hips so wide, they span an entire planet or more."))), GameUtil.setConstraints(0, 0.1, 1, 4, 4, 1));
 		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 7, 5, 3, 1));
 		
 		TitleScreen.frame.add(panel);
@@ -237,21 +238,21 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Hyper Thighs", this), GameUtil.setConstraints(0.1, 0.1, 4, 2, 1, 1));
 		panel.add(GameUtil.createButton("Hyper Hips", this), GameUtil.setConstraints(0.1, 0.1, 5, 2, 1, 1));
 		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Hyper Perks ---</center></div>"
-						+ GameUtil.makeDiv("Hyper Fertility - Whenever PC is pregnant, their pregnancy belly will range from the size of a large pool to a city."
+						+ TextFormat.makeDiv("Hyper Fertility - Whenever PC is pregnant, their pregnancy belly will range from the size of a large pool to a city."
 						+ " Their lactatcion will also be so extreme that olympic-sized pools could be filled quickly.")
-						+ GameUtil.makeDiv("Hyper Virility - If PC has balls, their semen will have a drastic effects on impregnating women."
+						+ TextFormat.makeDiv("Hyper Virility - If PC has balls, their semen will have a drastic effects on impregnating women."
 						+ " These effects range from making impregnanted women have thousands to hundred thousand children at once."
 						+ " It will also make the PC's cum production at such ridiclous levels they could flood olympic-sized pools with their semen")
-						+ GameUtil.makeDiv("Hyper Size - Will make the PC ginormous. Their height will range from giraffe-sized to Eiffel-tower-sized."
+						+ TextFormat.makeDiv("Hyper Size - Will make the PC ginormous. Their height will range from giraffe-sized to Eiffel-tower-sized."
 						+ " They also get the special ability to assume a specific height, disguising their true height, but not their mass.")
-						+ GameUtil.makeDiv("Hyper Cock -  PC will have a cock the size of a blue-whale to sub-skycraper-sized")
-						+ GameUtil.makeDiv("Hyper Balls - PC will have balls so large, they can range from the size of pools, to a small body of water.")
-						+ GameUtil.makeDiv("Hyper Boobs - PC will have boobs so large they range from pool-sized to small bodies of water.")
-						+ GameUtil.makeDiv("Hyper Vagina - PC will have a vagina so large, and so deep, a pool could fit in size. Or something sub sky-scraper-sized")
-						+ GameUtil.makeDiv("Hyper Udder - PC will have a massive udder ranging from pool-sized to sub-skyscraper-sized.")
-						+ GameUtil.makeDiv("Hyper Butt - PC will have a butt so large, it can fill public pools to sub sky-scraper.")
-						+ GameUtil.makeDiv("Hyper Thighs - PC will have thighs so thick, they fill pools to sub sky-scraper.")
-						+ GameUtil.makeDiv("Hyper Hips - PC will have hips so wide, they span large fields but are smaller than a sky-scraper."))), GameUtil.setConstraints(0, 0.1, 1, 4, 4, 1));
+						+ TextFormat.makeDiv("Hyper Cock -  PC will have a cock the size of a blue-whale to sub-skycraper-sized")
+						+ TextFormat.makeDiv("Hyper Balls - PC will have balls so large, they can range from the size of pools, to a small body of water.")
+						+ TextFormat.makeDiv("Hyper Boobs - PC will have boobs so large they range from pool-sized to small bodies of water.")
+						+ TextFormat.makeDiv("Hyper Vagina - PC will have a vagina so large, and so deep, a pool could fit in size. Or something sub sky-scraper-sized")
+						+ TextFormat.makeDiv("Hyper Udder - PC will have a massive udder ranging from pool-sized to sub-skyscraper-sized.")
+						+ TextFormat.makeDiv("Hyper Butt - PC will have a butt so large, it can fill public pools to sub sky-scraper.")
+						+ TextFormat.makeDiv("Hyper Thighs - PC will have thighs so thick, they fill pools to sub sky-scraper.")
+						+ TextFormat.makeDiv("Hyper Hips - PC will have hips so wide, they span large fields but are smaller than a sky-scraper."))), GameUtil.setConstraints(0, 0.1, 1, 4, 4, 1));
 		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 7, 5, 3, 1));
 		
 		TitleScreen.frame.add(panel);
@@ -278,20 +279,20 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Large Thighs", this), GameUtil.setConstraints(0.1, 0.1, 4, 2, 1, 1));
 		panel.add(GameUtil.createButton("Large Hips", this), GameUtil.setConstraints(0.1, 0.1, 5, 2, 1, 1));
 		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Large Perks ---</center></div>"
-						+ GameUtil.makeDiv("Large Fertility - Whenever PC is pregnant, their pregnancy belly will range from the size of a bed to the size of a pool."
+						+ TextFormat.makeDiv("Large Fertility - Whenever PC is pregnant, their pregnancy belly will range from the size of a bed to the size of a pool."
 						+ " Their lactatcion will also be so extreme that whole bathtubs will be overflowing with milk.")
-						+ GameUtil.makeDiv("Large Virility - If PC has balls, their semen will have a drastic effects on impregnating women."
+						+ TextFormat.makeDiv("Large Virility - If PC has balls, their semen will have a drastic effects on impregnating women."
 						+ " These effects range from making impregnanted women have up to a thousand children at once."
 						+ " It will also make the PC's cum production at such ridiclous levels they could flood bathtubs with their semen")
-						+ GameUtil.makeDiv("Large Size - Will make the PC large. Their height will range from just above average to giraffe-sized.")
-						+ GameUtil.makeDiv("Large Cock -  PC will have a cock double to quadruple their height.")
-						+ GameUtil.makeDiv("Large Balls - PC will have balls so large, they can range from beach-ball-sized to bathtub-sized.")
-						+ GameUtil.makeDiv("Large Boobs - PC will have boobs so large they range from large to bathtub-sized.")
-						+ GameUtil.makeDiv("Large Vagina - PC will have a vagina large enough a bathtub could fit inside.")
-						+ GameUtil.makeDiv("Large Udder - PC will have a massive udder ranging from bathtub-sized to under pool-sized.")
-						+ GameUtil.makeDiv("Large Butt - PC will have a butt large enough to take up a whole bathtub.")
-						+ GameUtil.makeDiv("Large Thighs - PC will have thighs large enough to take up a whole bathtub")
-						+ GameUtil.makeDiv("Large Hips - PC will have hips wide enough to take up a whole bathtub"))), GameUtil.setConstraints(0, 0.1, 1, 4, 4, 1));
+						+ TextFormat.makeDiv("Large Size - Will make the PC large. Their height will range from just above average to giraffe-sized.")
+						+ TextFormat.makeDiv("Large Cock -  PC will have a cock double to quadruple their height.")
+						+ TextFormat.makeDiv("Large Balls - PC will have balls so large, they can range from beach-ball-sized to bathtub-sized.")
+						+ TextFormat.makeDiv("Large Boobs - PC will have boobs so large they range from large to bathtub-sized.")
+						+ TextFormat.makeDiv("Large Vagina - PC will have a vagina large enough a bathtub could fit inside.")
+						+ TextFormat.makeDiv("Large Udder - PC will have a massive udder ranging from bathtub-sized to under pool-sized.")
+						+ TextFormat.makeDiv("Large Butt - PC will have a butt large enough to take up a whole bathtub.")
+						+ TextFormat.makeDiv("Large Thighs - PC will have thighs large enough to take up a whole bathtub")
+						+ TextFormat.makeDiv("Large Hips - PC will have hips wide enough to take up a whole bathtub"))), GameUtil.setConstraints(0, 0.1, 1, 4, 4, 1));
 		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 7, 5, 3, 1));
 		
 		TitleScreen.frame.add(panel);
@@ -309,10 +310,10 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Vore Level", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
 		panel.add(GameUtil.createButton("Fatal Vore Efficency", this), GameUtil.setConstraints(0.1, 0.1, 2, 1, 1, 1));
 		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Vore Perks ---</center></div>"
-						+ GameUtil.makeDiv("Vore Level - the higher level the stronger people PC can vore. Also the more people PC can fit inside themselves after Voring."
+						+ TextFormat.makeDiv("Vore Level - the higher level the stronger people PC can vore. Also the more people PC can fit inside themselves after Voring."
 								+ " It's important to note, when voring the PC has the option of making it fatal."
 								+ "It costs 5 sex perk points.")
-						+ GameUtil.makeDiv("Fatal Vore Efficency - If PC chooses to make their voring fatal this determines how much mass and size is gained by the PC."
+						+ TextFormat.makeDiv("Fatal Vore Efficency - If PC chooses to make their voring fatal this determines how much mass and size is gained by the PC."
 								+ "It costs 6 sex perk points.")
 						)), GameUtil.setConstraints(0, 0.1, 1, 2, 4, 1));
 		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 0, 3, 3, 1));
@@ -334,13 +335,13 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Rogue", this), GameUtil.setConstraints(0.1, 0.1, 0, 1, 1, 1));
 		panel.add(GameUtil.createButton("Monk", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
 		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Class ---</center></div>"
-				+ GameUtil.makeDiv("Fighter - PC specializes in fighting with melee weapons. These range from swords, to greatswords, warhammers, and so on. "
+				+ TextFormat.makeDiv("Fighter - PC specializes in fighting with melee weapons. These range from swords, to greatswords, warhammers, and so on. "
 						+ "They can be one-handed or two-handed.")
-				+ GameUtil.makeDiv("Ranger - PC specializes in fighting with ranged weapons. These range from bows to crossbows and so on. "
+				+ TextFormat.makeDiv("Ranger - PC specializes in fighting with ranged weapons. These range from bows to crossbows and so on. "
 						+ "They can be two-handed greatbows to two-handed greatcrossbows.")
-				+ GameUtil.makeDiv("Sorcerer - PC specilaizes in fighting with magic. They can throw fireballs, move rock, and so on.")
-				+ GameUtil.makeDiv("Rogue - PC specializes with fighting with finesse weapons. These range from daggers to rapiers.")
-				+ GameUtil.makeDiv("Monk - PC specializes in martial arts. They can use any martial weapon or fight unarmed. "
+				+ TextFormat.makeDiv("Sorcerer - PC specilaizes in fighting with magic. They can throw fireballs, move rock, and so on.")
+				+ TextFormat.makeDiv("Rogue - PC specializes with fighting with finesse weapons. These range from daggers to rapiers.")
+				+ TextFormat.makeDiv("Monk - PC specializes in martial arts. They can use any martial weapon or fight unarmed. "
 						+ "PC can use Jiang swords, Dao broadswords, Bo-staffs, and so on."))), GameUtil.setConstraints(0, 0.1, 0, 2, 3, 1));
 		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 3, 3, 3, 1));
 		
@@ -360,12 +361,12 @@ public class CharCreator implements ActionListener {
 		panel.add(GameUtil.createButton("Utility", this), GameUtil.setConstraints(0.1, 0.1, 0, 1, 1, 1));
 		panel.add(GameUtil.createButton("Healer", this), GameUtil.setConstraints(0.1, 0.1, 1, 1, 1, 1));
 		panel.add(GameUtil.setScroll(GameUtil.setTextBody("<div><center>--- Select Role ---</center></div>"
-				+ GameUtil.makeDiv("Tank - With this role PC will have a large physical resistance but low magic resist. "
+				+ TextFormat.makeDiv("Tank - With this role PC will have a large physical resistance but low magic resist. "
 						+ "PC will get a HP boost.")
-				+ GameUtil.makeDiv("Damage - With this role PC will have low physical resistance but a high magic resist. "
+				+ TextFormat.makeDiv("Damage - With this role PC will have low physical resistance but a high magic resist. "
 						+ "PC will get a EP boost.")
-				+ GameUtil.makeDiv("Utility - PC will have balanced physical and magic resist. Their HP and EP will also be balanced.")
-				+ GameUtil.makeDiv("Healer - PC will have a balanced physical and magic resist. "
+				+ TextFormat.makeDiv("Utility - PC will have balanced physical and magic resist. Their HP and EP will also be balanced.")
+				+ TextFormat.makeDiv("Healer - PC will have a balanced physical and magic resist. "
 						+ "PC will get a EP boost."))), GameUtil.setConstraints(0, 0.1, 0, 2, 3, 1));
 		panel.add(GameUtil.createButton("Back", this), GameUtil.setConstraints(0, 0, 3, 3, 3, 1));
 		

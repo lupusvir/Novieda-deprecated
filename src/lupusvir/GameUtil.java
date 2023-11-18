@@ -32,17 +32,6 @@ public class GameUtil {
 		TitleScreen.frame.repaint();
 	}
 	
-	//Allows events to check and see if a particular item is in the bag. Put this with Bag function.
-	public static boolean checkItem(int ID) {
-//		for (int i = 0; i < Char.bagArray.length; i++) {
-////			System.out.println(i);
-//			if(Char.bagArray[i] == ID) {
-//				return true;
-//			}
-//		}
-		return false;
-	}
-	
 	/** 
 	* This method creates GridBagConstraints. It takes six variables and returns the GridBagConstraint object. 
 	* The arguments are as follows: (weightx, weighty, gridx, gridy, gridwidth, gridheight)
@@ -70,6 +59,21 @@ public class GameUtil {
 	}
 	
 	/** 
+	* Method that creates an array of JButtons. 
+	* Needs an array of strings and action listeners for the button names and to make each button do something.
+	*/
+	public static JButton createVerticalButtonList(String[] names, ActionListener listener, int xLoc, int yLoc, int xWidth, int yWidth) {
+		for (int i = 0; names.length > i; i++) {
+			JButton button = new JButton(names[i]);
+			button.addActionListener(listener);
+			setConstraints(0, 0, xLoc, yLoc, xWidth, yWidth);
+			yLoc++;
+			return button;
+		}
+		return null;
+	}
+	
+	/** 
 	* Method that generates JLabels taking the actual text for it as input
 	*/
 	public static JLabel setLabel(String inText) {
@@ -93,11 +97,6 @@ public class GameUtil {
 		return scroll;
 		}
 	
-	public static String makeDiv(String inText) {
-		inText = "<div></div><div>" + inText + "</div>";
-		return inText;
-	}
-	
 	public static JTextPane setTextBody(String inText) {
 		JTextPane textPane = new JTextPane();
 		textPane.setContentType("text/html");
@@ -118,16 +117,6 @@ public class GameUtil {
 		constraints.ipadx = inIPadx;
 		constraints.ipady = inIPady;
 		return constraints;
-	}
-	
-	public static String makeItalic(String inText) {
-		inText = "<p style=\"font-style: italic;\">" + inText + "</p>";
-		return inText;
-	}
-	
-	public static String makeDialogue(String inDialogue) {
-		String outDialogue = makeDiv(makeItalic(inDialogue));
-		return outDialogue;
 	}
 
 }
