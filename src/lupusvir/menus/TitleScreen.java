@@ -21,6 +21,7 @@ public class TitleScreen implements ActionListener {
 	*/
 	public TitleScreen() {
 		
+		//TODO Make buttons and text scale with screen resolution
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //getting the size of the screen
 		
 		JPanel panel = new JPanel(new GridBagLayout()); //formatting the panel to use the Grid Bag Layout from Java

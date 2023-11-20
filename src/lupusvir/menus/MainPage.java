@@ -16,23 +16,25 @@ public class MainPage implements ActionListener {
 	
 	int menuLevel = 0;
 	int textNum = 0;
+	boolean introPromptDone = false;
 	
 	public MainPage () {
-		GameUtil.clearScreen();
+//		GameUtil.clearScreen();
 		introPrompt();
 	}
 	
+	//TODO Fix skipping of intro prompt
 	public void introPrompt() {
 		JPanel panel = new JPanel(new GridBagLayout());
+		GameUtil.clearScreen();
 		
-//		System.out.println("Entering if-statement. textNum variable: " + textNum);
 		if(textNum == 0) {
 			panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody(TextFormat.makeItalic("So, you've chosen.") 
 					+ "A feminine voice echoed around " + CharCreator.appear.getName() + "'s head."), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
 			textNum++;
+			
 		} else if (textNum == 1) {
-			GameUtil.clearScreen();
 			panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody(TextFormat.makeItalic("Are you pleased with what you've chosen? ")
 					+ "<div>A pause.<div>" + TextFormat.makeItalic("Changing can be difficult you know. "
 							+ "That is, unless you don't want it. ") + "A scoff."
@@ -40,21 +42,21 @@ public class MainPage implements ActionListener {
 					+ TextFormat.makeItalic("Change, after all, is something fundamental to our universe. No matter who or what you are.")), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
 			textNum++;
+			
 		} else if (textNum == 2) {
-			GameUtil.clearScreen();
 			panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody(TextFormat.makeItalic("The better question to be asked is, "
 					+ "What will you do in the face of change? Will you fight it, or embrace it?"
 					+ TextFormat.makeItalic("Fate depends on it you know.")
 					+ TextFormat.makeItalic("After all, life's always been about choices. Choices made in shades of grey."))), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
 			textNum++;
+			
 		} else if (textNum == 3) {
-			GameUtil.clearScreen();
 			panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody(TextFormat.makeItalic("So what will you choose?")), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
 			textNum++;
+			
 		} else if (textNum == 4) {
-			GameUtil.clearScreen();
 			panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody(TextFormat.makeItalic("Ugh, it's that dream again.")
 					+ "Your own thoughts echo."
 					+ TextFormat.makeItalic("It keeps occuring, but what on Earth does it mean?")
@@ -63,9 +65,17 @@ public class MainPage implements ActionListener {
 					+ "For now, you wake up, on an island called Novieda."), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
 			textNum++;
-			
-		} else if (textNum == 5 && CharCreator.discoveries.getFoundPlainsKingdom() == true) {
-			GameUtil.clearScreen();
+		}
+		
+		TitleScreen.frame.add(panel);
+		GameUtil.refreshScreen();
+	}
+	
+	public void checkStartLoc() {
+		JPanel panel = new JPanel(new GridBagLayout());
+		GameUtil.clearScreen();
+		
+		if (textNum == 5 && CharCreator.discoveries.getFoundPlainsKingdom() == true) {
 			panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody("You find yourself in the plains kingdom also known as "
 					+ "Ventosa Campestribus. Also known as the home of the Equidae Sapien peoples."
 					+ "They're a hardy people with large genitals and a strict code of honor."
@@ -74,56 +84,48 @@ public class MainPage implements ActionListener {
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
 			textNum++;
 			quest.giveMainQuest();
-			vitality();
-			
 			
 		} else if (textNum == 5 && CharCreator.discoveries.getFoundForestKingdom() == true) {
-			GameUtil.clearScreen();
 			panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody("You find yourself in the forest kingdom also known as "
-					+ "Lupus Silva. Also known as the home of the Canidae Sapien peoples."
+					+ "Lupus Silva. Also known as t//		vitality();he home of the Canidae Sapien peoples."
 					+ "They're lean and fit with larger-than-normal genitals. They frequently consider themselves and other as one large family."
 					+ "There's a number of things nearby, ranging from the barracks, to the town center, market, square and much more."
 					+ "But you find yourself still questioning your dream. Perhaps a visit to the local mage?"), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
-			quest.giveMainQuest();
-			vitality();
 			textNum++;
+			quest.giveMainQuest();
 			
 		}  else if (textNum == 5 && CharCreator.discoveries.getFoundJungleKingdom() == true) {
-			GameUtil.clearScreen();
 			panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody("You find yourself in the jungle kingdom also known as "
 					+ "Jungle of Cats. Home of the Felidae Sapien peoples."
 					+ "They're flexible and small. Their kingdom a matriarchy."
 					+ "There's a number of things nearby, ranging from the barracks, to the town center, market, square and much more."
 					+ "But you find yourself still questioning your dream. Perhaps a visit to the local mage?"), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
-			quest.giveMainQuest();
-			vitality();
 			textNum++;
+			quest.giveMainQuest();
 			
 		} else if (textNum == 5 && CharCreator.discoveries.getFoundDesertKingdom() == true) {
-			GameUtil.clearScreen();
 			panel.add(GameUtil.setScrollAltA(GameUtil.setTextBody("You find yourself in the desert kingdom also known as "
 					+ "The Dry Basin. Home of the Reptilia Sapien peoples."
 					+ "They're a diverse group of peoples. Their kingdom governed by a board."
 					+ "There's a number of things nearby, ranging from the barracks, to the town center, market, square and much more."
 					+ "But you find yourself still questioning your dream. Perhaps a visit to the local mage?"), 800, 800), GameUtil.setConstraints(0, 0.1, 0, 0, 4, 1));
 			panel.add(GameUtil.createButton("Next", this), GameUtil.setConstraints(0, 0.1, 0, 1, 4, 1));
-			quest.giveMainQuest();
-			vitality();
 			textNum++;
+			quest.giveMainQuest();
 		}
-	
-//		System.out.println("Exiting if-statement. textNum variable: " + textNum);
+		
 		TitleScreen.frame.add(panel);
 		GameUtil.refreshScreen();
+		introPromptDone = true;
 	}
 	
 	public void vitality() {
 		JPanel panel = new JPanel(new GridBagLayout());
-		
 		GameUtil.clearScreen();
 		
+		/* TODO build a better method of making lots of buttons with names and text */
 		panel.add(GameUtil.setLabel("<html><center>Health: " + CharCreator.stats.getCurrentHP() + "/" + CharCreator.stats.getTotalHP() + "</center>"), GameUtil.setConstraints(0, 0, 0, 0, 1, 1));
 		panel.add(GameUtil.setLabel("<html><center>Energy: " + CharCreator.stats.getCurrentEP() + "/" + CharCreator.stats.getTotalEP() + "</center>"), GameUtil.setConstraints(0, 0, 0, 1, 1, 1));
 		panel.add(GameUtil.setLabel("<html><center>Lust: " + CharCreator.stats.getCurrentLust() + "/" + CharCreator.stats.getTotalLust() + "</center>"), GameUtil.setConstraints(0, 0, 0, 2, 1, 1));
@@ -132,11 +134,11 @@ public class MainPage implements ActionListener {
 		
 		panel.add(GameUtil.setLabel(""), GameUtil.setConstraints(0, 1, 0, 5, 1, 1)); //vertical spacer between labels and buttons
 		
-		String[] names = {"Save", "Load", "New Game"};
-		panel.add(GameUtil.createVerticalButtonList(names, this, 0, 6, 1, 1));
-//		panel.add(GameUtil.createButton("Save", this), GameUtil.setConstraints(0, 0, 0, 6, 1, 1));
-//		panel.add(GameUtil.createButton("Load", this), GameUtil.setConstraints(0, 0, 0, 7, 1, 1));
-//		panel.add(GameUtil.createButton("New Game", this), GameUtil.setConstraints(0, 0, 0, 8, 1, 1));
+//		String[] names = {"Save", "Load", "New Game"};
+//		panel.add(GameUtil.createVerticalButtonList(names, this, 0, 6, 1, 1));
+		panel.add(GameUtil.createButton("Save", this), GameUtil.setConstraints(0, 0, 0, 6, 1, 1));
+		panel.add(GameUtil.createButton("Load", this), GameUtil.setConstraints(0, 0, 0, 7, 1, 1));
+		panel.add(GameUtil.createButton("New Game", this), GameUtil.setConstraints(0, 0, 0, 8, 1, 1));
 		
 		centerButtons(panel);
 	}
@@ -220,8 +222,9 @@ public class MainPage implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand().equals("Next") && textNum < 5) {
-			if(textNum > 0) { introPrompt(); } 
+		if(e.getActionCommand().equals("Next")) {
+			if(textNum != 5) { introPrompt(); }
+			else if(textNum == 5) { checkStartLoc(); }
 		} else if (e.getActionCommand().equals("Character")) { displayCharPage(); }
 		else if (e.getActionCommand().equals("Back")) {
 			if (menuLevel == 2) {

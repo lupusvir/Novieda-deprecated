@@ -26,8 +26,8 @@ public class CharCreator implements ActionListener {
 	public static Stats stats = new Stats();
 	public static Time time = new Time();
 	public static Statuses statuses = new Statuses();
-	public static SexPerks sexPerks = new SexPerks();
-	public static CombatPerks combatPerks = new CombatPerks();
+//	public static SexPerks sexPerks = new SexPerks();
+//	public static CombatPerks combatPerks = new CombatPerks();
 	
 	int menuNumber = 0;
 	int sPerkPoints = 11;
@@ -681,226 +681,182 @@ public class CharCreator implements ActionListener {
 			} else if (menuNumber == 6) {
 				goBack();
 				udderSelect();
-			} else if (menuNumber == 7) {
-				goBack();
-				sexPerks();
-			}
+			} 
+//			else if (menuNumber == 7) {
+//				goBack();
+//				sexPerks();
+//			}
 			
 		} 
 		
-		else if (e.getActionCommand().equals("Macro")) { macroSPerk(); } 
-		else if (e.getActionCommand().equals("Hyper")) { hyperSPerk(); } 
-		else if (e.getActionCommand().equals("Large")) { largeSPerk(); } 
-		else if (e.getActionCommand().equals("Vore")) { voreSPerk(); }
-		else if (e.getActionCommand().equals("Macro Fertility") || e.getActionCommand().equals("Macro Virility")|| e.getActionCommand().equals("Macro Size") 
-				|| e.getActionCommand().equals("Macro Cock") || e.getActionCommand().equals("Macro Balls") || e.getActionCommand().equals("Macro Boobs")
-				|| e.getActionCommand().equals("Macro Vagina") || e.getActionCommand().equals("Macro Udder") || e.getActionCommand().equals("Macro Butt")
-				|| e.getActionCommand().equals("Macro Thighs") || e.getActionCommand().equals("Macro Hips")) {
-			
-			if(e.getActionCommand().equals("Macro Fertility") && sexPerks.getMacroFertilityLevel() == 0) {
-				sPerkPoints -= 1;
-				sexPerks.setMacroFertilityLevel(1);
-				checkSexPerkAmount();
-				System.out.println("Last thing in macro fertility button response.");
-			} else if (e.getActionCommand().equals("Macro Virility") && sexPerks.getMacroVirilityLevel() == 0) {
-				sPerkPoints -= 1;
-				sexPerks.setMacroVirilityLevel(1);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Macro Size") && sexPerks.getMacroSizeLevel() == 0) {
-				sPerkPoints -= 1;
-				sexPerks.setMacroSizeLevel(1);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Macro Cock") && sexPerks.getMacroCock() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setMacroCock(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Macro Balls") && sexPerks.getMacroBalls() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setMacroBalls(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Macro Boobs") && sexPerks.getMacroBoobs() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setMacroBoobs(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Macro Vagina") && sexPerks.getMacroVagina() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setMacroVagina(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Macro Udder") && sexPerks.getMacroUdder() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setMacroUdder(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Macro Butt") && sexPerks.getMacroButt() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setMacroButt(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Macro Thighs") && sexPerks.getMacroThighs() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setMacroThighs(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Macro Hips") && sexPerks.getMacroHips() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setMacroHips(true);
-				checkSexPerkAmount();
-			}
-			
-		}
-		
-		else if (e.getActionCommand().equals("Hyper Fertility") || e.getActionCommand().equals("Hyper Virility")|| e.getActionCommand().equals("Hyper Size") 
-				|| e.getActionCommand().equals("Hyper Cock") || e.getActionCommand().equals("Hyper Balls") || e.getActionCommand().equals("Hyper Boobs")
-				|| e.getActionCommand().equals("Hyper Vagina") || e.getActionCommand().equals("Hyper Udder") || e.getActionCommand().equals("Hyper Butt")
-				|| e.getActionCommand().equals("Hyper Thighs") || e.getActionCommand().equals("Hyper Hips")) {
-			
-			if(e.getActionCommand().equals("Hyper Fertility") && sexPerks.getHyperFertilityLevel() == 0) {
-				sPerkPoints -= 1;
-				sexPerks.setHyperFertilityLevel(1);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Hyper Virility") && sexPerks.getHyperVirilityLevel() == 0) {
-				sPerkPoints -= 1;
-				sexPerks.setHyperVirilityLevel(1);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Hyper Size") && sexPerks.getHyperSizeLevel() == 0) {
-				sPerkPoints -= 1;
-				sexPerks.setHyperSizeLevel(1);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Hyper Cock") && sexPerks.getHyperCock() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setHyperCock(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Hyper Balls") && sexPerks.getHyperBalls() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setHyperBalls(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Hyper Boobs") && sexPerks.getHyperBoobs() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setHyperBoobs(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Hyper Vagina") && sexPerks.getHyperVagina() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setHyperVagina(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Hyper Udder") && sexPerks.getHyperUdder() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setHyperUdder(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Hyper Butt") && sexPerks.getHyperButt() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setHyperButt(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Hyper Thighs") && sexPerks.getHyperThighs() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setHyperThighs(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Hyper Hips") && sexPerks.getHyperHips() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setHyperHips(true);
-				checkSexPerkAmount();
-			}
-			
-		}
-		
-		else if (e.getActionCommand().equals("Large Fertility") || e.getActionCommand().equals("Large Virility")|| e.getActionCommand().equals("Large Size") 
-				|| e.getActionCommand().equals("Large Cock") || e.getActionCommand().equals("Large Balls") || e.getActionCommand().equals("Large Boobs")
-				|| e.getActionCommand().equals("Large Vagina") || e.getActionCommand().equals("Large Udder") || e.getActionCommand().equals("Large Butt")
-				|| e.getActionCommand().equals("Large Thighs") || e.getActionCommand().equals("Large Hips")) {
-			
-			if(e.getActionCommand().equals("Large Fertility") && sexPerks.getLargeFertilityLevel() == 0) {
-				sPerkPoints -= 1;
-				sexPerks.setLargeFertilityLevel(1);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Large Virility") && sexPerks.getLargeVirilityLevel() == 0) {
-				sPerkPoints -= 1;
-				sexPerks.setLargeVirilityLevel(1);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Large Size") && sexPerks.getLargeSizeLevel() == 0) {
-				sPerkPoints -= 1;
-				sexPerks.setLargeSizeLevel(1);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Large Cock") && sexPerks.getLargeCock() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setLargeCock(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Large Balls") && sexPerks.getLargeBalls() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setLargeBalls(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Large Boobs") && sexPerks.getLargeBoobs() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setLargeBoobs(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Large Vagina") && sexPerks.getLargeVagina() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setLargeVagina(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Large Udder") && sexPerks.getLargeUdder() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setLargeUdder(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Large Butt") && sexPerks.getLargeButt() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setLargeButt(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Large Thighs") && sexPerks.getLargeThighs() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setLargeThighs(true);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Large Hips") && sexPerks.getLargeHips() == false) {
-				sPerkPoints -= 1;
-				sexPerks.setLargeHips(true);
-				checkSexPerkAmount();
-			}
-		}
-		
-		else if(e.getActionCommand().equals("Vore Level") || e.getActionCommand().equals("Fatal Vore Efficency")) {
-			if(e.getActionCommand().equals("Vore Level") && sexPerks.getVoreLevel() == 0) {
-				sPerkPoints -= 5;
-				sexPerks.setVoreLevel(1);
-				checkSexPerkAmount();
-			} else if (e.getActionCommand().equals("Fatal Vore Efficency") && sexPerks.getFatalVoreEfficiencyLevel() == 0) {
-				sPerkPoints -= 6;
-				sexPerks.setFatalVoreEfficiencyLevel(1);
-				checkSexPerkAmount();
-			}
-		}
-		
-		else if (e.getActionCommand().equals("Fighter") || e.getActionCommand().equals("Ranger") || e.getActionCommand().equals("Sorcerer")
-				|| e.getActionCommand().equals("Rogue") || e.getActionCommand().equals("Monk")) {
-			
-			if (e.getActionCommand().equals("Fighter")) {
-				combatPerks.setFighterLevel(1);
-				roleMenu();
-			} else if (e.getActionCommand().equals("Ranger")) {
-				combatPerks.setRangerLevel(1);
-				roleMenu();
-			} else if (e.getActionCommand().equals("Sorcerer")) {
-				combatPerks.setSorcererlevel(1);
-				roleMenu();
-			} else if (e.getActionCommand().equals("Rogue")) {
-				combatPerks.setRogueLevel(1);
-				roleMenu();
-			} else if (e.getActionCommand().equals("Monk")) {
-				combatPerks.setMonkLevel(1);
-				roleMenu();
-			}
-		}
-		
-		else if (e.getActionCommand().equals("Tank") || e.getActionCommand().equals("Damage") || e.getActionCommand().equals("Utility")
-				|| e.getActionCommand().equals("Healer")) {
-			
-			if (e.getActionCommand().equals("Tank")) {
-				combatPerks.setTankRole(true);
-				charNameMenu();
-			} else if (e.getActionCommand().equals("Damage")) {
-				combatPerks.setDamageRole(true);
-				charNameMenu();
-			} else if (e.getActionCommand().equals("Utility")) {
-				combatPerks.setUtilityRole(true);
-				charNameMenu();
-			} else if (e.getActionCommand().equals("Healer")) {
-				combatPerks.setHealerRole(true);
-				charNameMenu();
-			}
-		}
+		/* TODO Implement sex and class perks
+		 * else if (e.getActionCommand().equals("Macro")) { macroSPerk(); } else if
+		 * (e.getActionCommand().equals("Hyper")) { hyperSPerk(); } else if
+		 * (e.getActionCommand().equals("Large")) { largeSPerk(); } else if
+		 * (e.getActionCommand().equals("Vore")) { voreSPerk(); } else if
+		 * (e.getActionCommand().equals("Macro Fertility") ||
+		 * e.getActionCommand().equals("Macro Virility")||
+		 * e.getActionCommand().equals("Macro Size") ||
+		 * e.getActionCommand().equals("Macro Cock") ||
+		 * e.getActionCommand().equals("Macro Balls") ||
+		 * e.getActionCommand().equals("Macro Boobs") ||
+		 * e.getActionCommand().equals("Macro Vagina") ||
+		 * e.getActionCommand().equals("Macro Udder") ||
+		 * e.getActionCommand().equals("Macro Butt") ||
+		 * e.getActionCommand().equals("Macro Thighs") ||
+		 * e.getActionCommand().equals("Macro Hips")) {
+		 * 
+		 * if(e.getActionCommand().equals("Macro Fertility") &&
+		 * sexPerks.getMacroFertilityLevel() == 0) { sPerkPoints -= 1;
+		 * sexPerks.setMacroFertilityLevel(1); checkSexPerkAmount();
+		 * System.out.println("Last thing in macro fertility button response."); } else
+		 * if (e.getActionCommand().equals("Macro Virility") &&
+		 * sexPerks.getMacroVirilityLevel() == 0) { sPerkPoints -= 1;
+		 * sexPerks.setMacroVirilityLevel(1); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Macro Size") && sexPerks.getMacroSizeLevel() ==
+		 * 0) { sPerkPoints -= 1; sexPerks.setMacroSizeLevel(1); checkSexPerkAmount(); }
+		 * else if (e.getActionCommand().equals("Macro Cock") && sexPerks.getMacroCock()
+		 * == false) { sPerkPoints -= 1; sexPerks.setMacroCock(true);
+		 * checkSexPerkAmount(); } else if (e.getActionCommand().equals("Macro Balls")
+		 * && sexPerks.getMacroBalls() == false) { sPerkPoints -= 1;
+		 * sexPerks.setMacroBalls(true); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Macro Boobs") && sexPerks.getMacroBoobs() ==
+		 * false) { sPerkPoints -= 1; sexPerks.setMacroBoobs(true);
+		 * checkSexPerkAmount(); } else if (e.getActionCommand().equals("Macro Vagina")
+		 * && sexPerks.getMacroVagina() == false) { sPerkPoints -= 1;
+		 * sexPerks.setMacroVagina(true); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Macro Udder") && sexPerks.getMacroUdder() ==
+		 * false) { sPerkPoints -= 1; sexPerks.setMacroUdder(true);
+		 * checkSexPerkAmount(); } else if (e.getActionCommand().equals("Macro Butt") &&
+		 * sexPerks.getMacroButt() == false) { sPerkPoints -= 1;
+		 * sexPerks.setMacroButt(true); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Macro Thighs") && sexPerks.getMacroThighs() ==
+		 * false) { sPerkPoints -= 1; sexPerks.setMacroThighs(true);
+		 * checkSexPerkAmount(); } else if (e.getActionCommand().equals("Macro Hips") &&
+		 * sexPerks.getMacroHips() == false) { sPerkPoints -= 1;
+		 * sexPerks.setMacroHips(true); checkSexPerkAmount(); }
+		 * 
+		 * }
+		 * 
+		 * else if (e.getActionCommand().equals("Hyper Fertility") ||
+		 * e.getActionCommand().equals("Hyper Virility")||
+		 * e.getActionCommand().equals("Hyper Size") ||
+		 * e.getActionCommand().equals("Hyper Cock") ||
+		 * e.getActionCommand().equals("Hyper Balls") ||
+		 * e.getActionCommand().equals("Hyper Boobs") ||
+		 * e.getActionCommand().equals("Hyper Vagina") ||
+		 * e.getActionCommand().equals("Hyper Udder") ||
+		 * e.getActionCommand().equals("Hyper Butt") ||
+		 * e.getActionCommand().equals("Hyper Thighs") ||
+		 * e.getActionCommand().equals("Hyper Hips")) {
+		 * 
+		 * if(e.getActionCommand().equals("Hyper Fertility") &&
+		 * sexPerks.getHyperFertilityLevel() == 0) { sPerkPoints -= 1;
+		 * sexPerks.setHyperFertilityLevel(1); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Hyper Virility") &&
+		 * sexPerks.getHyperVirilityLevel() == 0) { sPerkPoints -= 1;
+		 * sexPerks.setHyperVirilityLevel(1); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Hyper Size") && sexPerks.getHyperSizeLevel() ==
+		 * 0) { sPerkPoints -= 1; sexPerks.setHyperSizeLevel(1); checkSexPerkAmount(); }
+		 * else if (e.getActionCommand().equals("Hyper Cock") && sexPerks.getHyperCock()
+		 * == false) { sPerkPoints -= 1; sexPerks.setHyperCock(true);
+		 * checkSexPerkAmount(); } else if (e.getActionCommand().equals("Hyper Balls")
+		 * && sexPerks.getHyperBalls() == false) { sPerkPoints -= 1;
+		 * sexPerks.setHyperBalls(true); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Hyper Boobs") && sexPerks.getHyperBoobs() ==
+		 * false) { sPerkPoints -= 1; sexPerks.setHyperBoobs(true);
+		 * checkSexPerkAmount(); } else if (e.getActionCommand().equals("Hyper Vagina")
+		 * && sexPerks.getHyperVagina() == false) { sPerkPoints -= 1;
+		 * sexPerks.setHyperVagina(true); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Hyper Udder") && sexPerks.getHyperUdder() ==
+		 * false) { sPerkPoints -= 1; sexPerks.setHyperUdder(true);
+		 * checkSexPerkAmount(); } else if (e.getActionCommand().equals("Hyper Butt") &&
+		 * sexPerks.getHyperButt() == false) { sPerkPoints -= 1;
+		 * sexPerks.setHyperButt(true); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Hyper Thighs") && sexPerks.getHyperThighs() ==
+		 * false) { sPerkPoints -= 1; sexPerks.setHyperThighs(true);
+		 * checkSexPerkAmount(); } else if (e.getActionCommand().equals("Hyper Hips") &&
+		 * sexPerks.getHyperHips() == false) { sPerkPoints -= 1;
+		 * sexPerks.setHyperHips(true); checkSexPerkAmount(); }
+		 * 
+		 * }
+		 * 
+		 * else if (e.getActionCommand().equals("Large Fertility") ||
+		 * e.getActionCommand().equals("Large Virility")||
+		 * e.getActionCommand().equals("Large Size") ||
+		 * e.getActionCommand().equals("Large Cock") ||
+		 * e.getActionCommand().equals("Large Balls") ||
+		 * e.getActionCommand().equals("Large Boobs") ||
+		 * e.getActionCommand().equals("Large Vagina") ||
+		 * e.getActionCommand().equals("Large Udder") ||
+		 * e.getActionCommand().equals("Large Butt") ||
+		 * e.getActionCommand().equals("Large Thighs") ||
+		 * e.getActionCommand().equals("Large Hips")) {
+		 * 
+		 * if(e.getActionCommand().equals("Large Fertility") &&
+		 * sexPerks.getLargeFertilityLevel() == 0) { sPerkPoints -= 1;
+		 * sexPerks.setLargeFertilityLevel(1); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Large Virility") &&
+		 * sexPerks.getLargeVirilityLevel() == 0) { sPerkPoints -= 1;
+		 * sexPerks.setLargeVirilityLevel(1); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Large Size") && sexPerks.getLargeSizeLevel() ==
+		 * 0) { sPerkPoints -= 1; sexPerks.setLargeSizeLevel(1); checkSexPerkAmount(); }
+		 * else if (e.getActionCommand().equals("Large Cock") && sexPerks.getLargeCock()
+		 * == false) { sPerkPoints -= 1; sexPerks.setLargeCock(true);
+		 * checkSexPerkAmount(); } else if (e.getActionCommand().equals("Large Balls")
+		 * && sexPerks.getLargeBalls() == false) { sPerkPoints -= 1;
+		 * sexPerks.setLargeBalls(true); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Large Boobs") && sexPerks.getLargeBoobs() ==
+		 * false) { sPerkPoints -= 1; sexPerks.setLargeBoobs(true);
+		 * checkSexPerkAmount(); } else if (e.getActionCommand().equals("Large Vagina")
+		 * && sexPerks.getLargeVagina() == false) { sPerkPoints -= 1;
+		 * sexPerks.setLargeVagina(true); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Large Udder") && sexPerks.getLargeUdder() ==
+		 * false) { sPerkPoints -= 1; sexPerks.setLargeUdder(true);
+		 * checkSexPerkAmount(); } else if (e.getActionCommand().equals("Large Butt") &&
+		 * sexPerks.getLargeButt() == false) { sPerkPoints -= 1;
+		 * sexPerks.setLargeButt(true); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Large Thighs") && sexPerks.getLargeThighs() ==
+		 * false) { sPerkPoints -= 1; sexPerks.setLargeThighs(true);
+		 * checkSexPerkAmount(); } else if (e.getActionCommand().equals("Large Hips") &&
+		 * sexPerks.getLargeHips() == false) { sPerkPoints -= 1;
+		 * sexPerks.setLargeHips(true); checkSexPerkAmount(); } }
+		 * 
+		 * else if(e.getActionCommand().equals("Vore Level") ||
+		 * e.getActionCommand().equals("Fatal Vore Efficency")) {
+		 * if(e.getActionCommand().equals("Vore Level") && sexPerks.getVoreLevel() == 0)
+		 * { sPerkPoints -= 5; sexPerks.setVoreLevel(1); checkSexPerkAmount(); } else if
+		 * (e.getActionCommand().equals("Fatal Vore Efficency") &&
+		 * sexPerks.getFatalVoreEfficiencyLevel() == 0) { sPerkPoints -= 6;
+		 * sexPerks.setFatalVoreEfficiencyLevel(1); checkSexPerkAmount(); } }
+		 * 
+		 * else if (e.getActionCommand().equals("Fighter") ||
+		 * e.getActionCommand().equals("Ranger") ||
+		 * e.getActionCommand().equals("Sorcerer") ||
+		 * e.getActionCommand().equals("Rogue") || e.getActionCommand().equals("Monk"))
+		 * {
+		 * 
+		 * if (e.getActionCommand().equals("Fighter")) { combatPerks.setFighterLevel(1);
+		 * roleMenu(); } else if (e.getActionCommand().equals("Ranger")) {
+		 * combatPerks.setRangerLevel(1); roleMenu(); } else if
+		 * (e.getActionCommand().equals("Sorcerer")) { combatPerks.setSorcererlevel(1);
+		 * roleMenu(); } else if (e.getActionCommand().equals("Rogue")) {
+		 * combatPerks.setRogueLevel(1); roleMenu(); } else if
+		 * (e.getActionCommand().equals("Monk")) { combatPerks.setMonkLevel(1);
+		 * roleMenu(); } }
+		 * 
+		 * else if (e.getActionCommand().equals("Tank") ||
+		 * e.getActionCommand().equals("Damage") ||
+		 * e.getActionCommand().equals("Utility") ||
+		 * e.getActionCommand().equals("Healer")) {
+		 * 
+		 * if (e.getActionCommand().equals("Tank")) { combatPerks.setTankRole(true);
+		 * charNameMenu(); } else if (e.getActionCommand().equals("Damage")) {
+		 * combatPerks.setDamageRole(true); charNameMenu(); } else if
+		 * (e.getActionCommand().equals("Utility")) { combatPerks.setUtilityRole(true);
+		 * charNameMenu(); } else if (e.getActionCommand().equals("Healer")) {
+		 * combatPerks.setHealerRole(true); charNameMenu(); } }
+		 */
 		else if (e.getActionCommand().equals("Next")) {
 			appear.setName(textPane.getText());
 			new MainPage(); 

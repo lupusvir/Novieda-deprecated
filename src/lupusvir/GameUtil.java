@@ -35,6 +35,7 @@ public class GameUtil {
 	/** 
 	* This method creates GridBagConstraints. It takes six variables and returns the GridBagConstraint object. 
 	* The arguments are as follows: (weightx, weighty, gridx, gridy, gridwidth, gridheight)
+	* TODO Make this whole method much more dynamic and easier to replicate. Essentially making it size and position better.
 	*/
 	public static GridBagConstraints setConstraints(double inWeightx, double inWeighty, int inGridx, int inGridy, int inGridWidth, int inGridHeight) { //method which makes button constraints
 			GridBagConstraints constraints = new GridBagConstraints();
@@ -61,6 +62,7 @@ public class GameUtil {
 	/** 
 	* Method that creates an array of JButtons. 
 	* Needs an array of strings and action listeners for the button names and to make each button do something.
+	* TODO Fix how the values are returned.
 	*/
 	public static JButton createVerticalButtonList(String[] names, ActionListener listener, int xLoc, int yLoc, int xWidth, int yWidth) {
 		for (int i = 0; names.length > i; i++) {
